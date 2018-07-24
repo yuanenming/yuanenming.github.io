@@ -21,8 +21,9 @@
 <meta property="og:description" content="IntroductionA website or a blog of your own is very cool right? Today I will introduce you the easist way to have your own webpage (as far as I know). Here I chose Hexo(https://hexo.io) and github(htt">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="http://www.yuanenming.com/2018/07/24/Start-a-blog-the-easy-way/CreateARepo.jpg">
-<meta property="og:image" content="http://www.yuanenming.com/2018/07/24/Start-a-blog-the-easy-way/Start-a-blog-the-easy-wayStartGitHubPage.jpg">
-<meta property="og:updated_time" content="2018-07-24T03:51:31.613Z">
+<meta property="og:image" content="http://www.yuanenming.com/2018/07/24/Start-a-blog-the-easy-way/StartGitHubPage.jpg">
+<meta property="og:image" content="http://www.yuanenming.com/2018/07/24/Start-a-blog-the-easy-way/ChooseATheme.jpg">
+<meta property="og:updated_time" content="2018-07-24T08:17:29.726Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Start a blog the easy way">
 <meta name="twitter:description" content="IntroductionA website or a blog of your own is very cool right? Today I will introduce you the easist way to have your own webpage (as far as I know). Here I chose Hexo(https://hexo.io) and github(htt">
@@ -204,8 +205,28 @@
 <p>You need a new repository for your blog. To create a new repo, clik the <code>new</code> button.</p>
 <p>Then you need to set your repo initially. A veeeeeery important thing: <strong>The repo name is the same as your github name</strong></p>
 <p>After entering your repo name, go to your repo page and then click the <code>setting</code> button at the right side.</p>
+<p><img src="/2018/07/24/Start-a-blog-the-easy-way/StartGitHubPage.jpg" alt=""></p>
 <p>find the option GitHub Pages. and click <code>Choose a theme</code></p>
-<p><img src="/2018/07/24/Start-a-blog-the-easy-way/Start-a-blog-the-easy-wayStartGitHubPage.jpg" alt=""></p>
+<p><img src="/2018/07/24/Start-a-blog-the-easy-way/ChooseATheme.jpg" alt=""></p>
+<p>OK, till to now, you have finished the first step. Next we are going to prepare our tools for setting blog.</p>
+<h3 id="Download-local-tools"><a href="#Download-local-tools" class="headerlink" title="Download local tools"></a>Download local tools</h3><p>Since I use a Mac OS X operating system, so I am going to talk about the steps under Mac OS. If you use a Linux System, it is quite same. But if you use Windows OS, there may be a little different. But I believe it will not stop you.</p>
+<p>The tools whcih should be installed is shown as follow:</p>
+<ul>
+<li>Git</li>
+<li>Node.js</li>
+<li>Hexo</li>
+</ul>
+<h3 id="Installing-and-initializing-Hexo"><a href="#Installing-and-initializing-Hexo" class="headerlink" title="Installing and initializing Hexo"></a>Installing and initializing Hexo</h3><p>Hexo is a fast, simple &amp; powerful blog framework. You can install it easily from its website (<a href="https://hexo.io" target="_blank" rel="noopener">https://hexo.io</a>)</p>
+<p>First, you should make a new directory in your computer, for example <code>blog\</code>, Next, open your terminal and enter this dir</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br><span class="line">hexo -v</span><br></pre></td></tr></table></figure>
+<p>If a list of commands that shows the version of your local hexo, it means it works.</p>
+<p>To initialize Hexo, you can type the following in your terminal</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo init Hexo</span><br><span class="line"><span class="built_in">cd</span> Hexo</span><br><span class="line">npm install</span><br></pre></td></tr></table></figure>
+<p>Then you successfully installed and initialized your Hexo.</p>
+<h3 id="Setting-your-blog"><a href="#Setting-your-blog" class="headerlink" title="Setting your blog"></a>Setting your blog</h3><p>Now, go to the root folder of your blog. You can find a file <code>_config.yml</code></p>
+<p>open it and make some edition for your preference.</p>
+<p>Change the following information:</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">title: #the title of your website</span><br><span class="line">subtitle: #the subtitle</span><br><span class="line">description: #description</span><br><span class="line">author: #Your name</span><br><span class="line">language: en</span><br></pre></td></tr></table></figure>
 
   </div>
   <footer class="article-footer">
