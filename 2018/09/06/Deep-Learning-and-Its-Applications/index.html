@@ -21,8 +21,7 @@
 <meta property="og:description" content="Recently, I read a review paper “Deep Learning and Its Applications in Biomedicine” published on Genomics Proteomics Bioinformatics, which I think is well-organized. So Today I will extract some main">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="http://www.yuanenming.com/2018/09/06/Deep-Learning-and-Its-Applications/1.png">
-<meta property="og:image" content="http://www.yuanenming.com/2018/09/06/Deep-Learning-and-Its-Applications/2.png">
-<meta property="og:updated_time" content="2018-09-06T11:18:34.064Z">
+<meta property="og:updated_time" content="2018-09-06T13:35:19.862Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Deep Learning and Its Applications">
 <meta name="twitter:description" content="Recently, I read a review paper “Deep Learning and Its Applications in Biomedicine” published on Genomics Proteomics Bioinformatics, which I think is well-organized. So Today I will extract some main">
@@ -175,7 +174,7 @@
   <div class="article-entry">
     <p>Recently, I read a review paper “Deep Learning and Its Applications in Biomedicine” published on <code>Genomics Proteomics Bioinformatics</code>, which I think is well-organized. So Today I will extract some main ideas.</p>
 <a id="more"></a>
-<h2 id="History"><a href="#History" class="headerlink" title="History"></a>History</h2><h3 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h3><p>\frac{s}{s}<br>Deep learning is a recent and fast-growing field of machine learning. It attempts to model abstraction from large-scale data by employing multi-layered deep neural networks (DNNs), thus making sense of data such as images, sounds, and texts. Deep learning in general has two properties:</p>
+<h2 id="History"><a href="#History" class="headerlink" title="History"></a>History</h2><h3 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h3><p>Deep learning is a recent and fast-growing field of machine learning. It attempts to model abstraction from large-scale data by employing multi-layered deep neural networks (DNNs), thus making sense of data such as images, sounds, and texts. Deep learning in general has two properties:</p>
 <ol>
 <li>multiple layers of nonlinear processing units</li>
 <li>supervised or unsupervised learning of feature presentations on each layer.<br>The early framework for deep learning was built on artificial neural networks (ANNs) in the 1980s, while the real impact of deep learning became apparent in 2006. Since then, deep learning has been applied to a wide range of fields, including automatic speech recognition, image recognition, natural language processing, drug discovery, and bioinformatics.<br>The past decades have witnessed a massive growth in biomedical data, such as genomic sequences, protein structures, and medical images, due to the advances of highthroughput technologies. This deluge of biomedical big data necessitates effective and efficient computational tools to store, analyze, and interpret such data. Deep learning-based algorithmic frameworks shed light on these challenging problems.</li>
@@ -183,12 +182,53 @@
 <h3 id="The-development-of-ANNs"><a href="#The-development-of-ANNs" class="headerlink" title="The development of ANNs"></a>The development of ANNs</h3><p>As a basis for deep learning, ANNs were inspired by biological processes in the 1960s, when it was discovered that different visual cortex cells were activated when cats visualized different objects. These studies illustrated that there were connections between the eyes and the cells of the visual cortex, and that the information was processed layer by layer in the visual system. ANNs mimicked the perception of objects by connecting artificial neurons within layers that could extract the features of objects. However, ANN research stagnated after the 1960s, due to the low capability resulting from its shallow structures and the limited computational capacity of computers at that time.<br>Thanks to the improvement in computer capabilities and methodologies, ANNs with efficient backpropagation(BP) facilitated studies on pattern recognition. In a neural network with BP, classifications were first processed by the ANN model, and weights were then modified by evaluating the difference between the predicted and the true class labels. Although BP helped to minimize errors through gradient descent, it seemed to work only for certain types of ANNs. Through improving the steeper gradients with BP, several learning methods were proposed, such as momentum, adaptive learning rate, least-squares methods, quasi-Newton methods, and conjugate gradient (CG). However, due to the complexity of ANNs, other simple machine learning algorithms, such as support vector machines (SVMs), random forest, and k-nearest neighbors algorithms (k-NN), gradually overtook ANNs in popularity (Figure 1).<br><img src="/2018/09/06/Deep-Learning-and-Its-Applications/1.png" alt=""></p>
 <h3 id="The-development-of-deep-learning"><a href="#The-development-of-deep-learning" class="headerlink" title="The development of deep learning"></a>The development of deep learning</h3><p>An ANN with more hidden layers offers much higher capacity for feature extraction. However, an ANN often converges to the local optimum, or encounters gradient diffusion when it contains deep and complex structures. A gradient propagated backwards rapidly diminishes in magnitude along the layers, resulting in slight modification to the weights in the layers near the input (<a href="http://deeplearning.stanford.edu/wiki/index.php/UFLDL_Tutorial" target="_blank" rel="noopener">http://deeplearning.stanford.edu/wiki/index.php/UFLDL_Tutorial</a>). Subsequently, a layer-wise pre-training deep auto-encoder (AE) network was proposed, bringing ANNs to a new stage of development. In this network, each layer is trained by minimizing the discrepancy between the original and the reconstructed data. The layer-wise pre-training breaks the barrier of gradient diffusion, and also results in a better choice of weights for deep neural networks (DNNs), thereby preventing the reconstructed data from reaching a local optimum where the local optimum is usually caused by the random selection of initial weights. In addition, the employment of graphic processing units (GPUs) also renews the interest of researchers in deep learning.<br>With the focus of more attention and efforts, deep learning has burgeoned in recent years and has been applied broadly in industry. For instance, deep belief networks (DBNs) and stacks of restricted Boltzmann machines (RBMs) have been applied in speech and image recognition and natural language processing. Proposed to better mimick animals’ perceptions of objects, convolutional neural networks (CNN) have been widely applied in image recognition, image segmentation, video recognition, and natural language processing. Recurrent neural networks (RNNs) are another class of ANNs that exhibit dynamic behavior, with artificial neurons that are associated with time steps. RNNs have become the primary tool for handling sequential data, and have been applied in natural language processing and handwriting recognition. Later on, variants of AEs, including sparse AEs, stacked AEs (SAEs), and de-noising AEs, have also gained popularity in pre-training deep networks.<br>Although applications of deep learning have been primarily focused on image recognition, video and sound analyses, as well as natural language processing, it also opens doors in life sciences, which will be discussed in detail in the next sections.</p>
 <h3 id="Brief-description-of-deep-learning"><a href="#Brief-description-of-deep-learning" class="headerlink" title="Brief description of deep learning"></a>Brief description of deep learning</h3><p>Although the underlying assumptions and theories are different, the basic idea and processes for feature extraction in most deep NN (DNN) architectures are similar. In the forward pass, the network is activated by an input to the first layer, which then spreads the activation to the final layer along the weighted connections, and generates the prediction or reconstruction results. In the backward pass, the weights of connections are tuned by minimizing the difference between the predicted and the real data.</p>
-<h2 id="Basic-Concepts"><a href="#Basic-Concepts" class="headerlink" title="Basic Concepts"></a>Basic Concepts</h2><h3 id="Activation-functions"><a href="#Activation-functions" class="headerlink" title="Activation functions"></a>Activation functions</h3><p>Activation functions form the non-linear layers in all deep learning frameworks; and their combinations with other layers are used to simulate the non-linear transformation from the input to the output. Therefore, better feature extraction can be achieved by selecting appropriate activation functions. Here, we introduce several commonly-used activation functions, represented by <code>g</code>.</p>
+<h2 id="Basic-Concepts"><a href="#Basic-Concepts" class="headerlink" title="Basic Concepts"></a>Basic Concepts</h2><h3 id="Activation-functions"><a href="#Activation-functions" class="headerlink" title="Activation functions"></a>Activation functions</h3><p>Activation functions form the non-linear layers in all deep learning frameworks; and their combinations with other layers are used to simulate the non-linear transformation from the input to the output. Therefore, better feature extraction can be achieved by selecting appropriate activation functions. Here, we introduce several commonly-used activation functions, represented by $ g $.</p>
 <ul>
-<li>Sigmoid function:<br><img src="/2018/09/06/Deep-Learning-and-Its-Applications/2.png" alt=""><br>where a is the input from the input from the front layer. A sigmoid function transforms variables to values ranging from 0 to 1 and is commonly used to produce a Bernoulli distribution.</li>
-<li>Hyperbolic tangent:</li>
+<li>Sigmoid function:<script type="math/tex; mode=display">
+g(a) = \frac{1}{1+e^{-a}}</script>where a is the input from the input from the front layer. A sigmoid function transforms variables to values ranging from 0 to 1 and is commonly used to produce a Bernoulli distribution.</li>
+<li><p>Hyperbolic tangent:</p>
+<script type="math/tex; mode=display">
+g(a) =tan h(a) = \frac{e^{a}-e^{-a}}{e^{a}+e^{-a}}</script><p>Here, the derivative of $ g $ is calculated as $ g = 1 - g^2 $, making it easy to work with BP algorithms.</p>
+</li>
+<li><p>Softmax:</p>
+<script type="math/tex; mode=display">
+g(a) = \frac{e^{a_{i}}}{\sum e^{a_{j}}}</script><p>The softmax output, which $ a_{n} $ be considered as a probability distribution over the categories, is commonly used in the final layer.</p>
+</li>
+<li>Rectified linear unit (ReLU):<script type="math/tex; mode=display">
+g(a)=max(0,a)</script>This activation function and its variants show superior performance in many cases and are the most popular activation function in deep learning so far [68,70–72]. ReLU can also solve the gradient diffusion problem [73,74].</li>
+<li><p>Softplus:</p>
+<script type="math/tex; mode=display">
+g(a) = log(1+e^{a})</script><p>This is one of the variants of ReLU, representing a smooth approximation of ReLU (in this article, the log always represents the natural logarithm).</p>
+</li>
+<li><p>Absolute value rectification:</p>
+<script type="math/tex; mode=display">
+g(a) = |a|</script><p>This function is useful when the pooling layer takes the average value in CNNs [75], thus preventing otherwise the negative features and the positive features from diminishing.</p>
+</li>
+<li><p>Maxout:</p>
+<script type="math/tex; mode=display">
+g_{i}(x)=max(b_{i} + w_{i} \cdot x)</script><p>The weight matrix in this function is a three-dimensional array, where the third array corresponds to the connection of the neighboring layers [76].</p>
+</li>
 </ul>
-<p>Here, the derivative of <code>g</code> is calculated as <code>g = 1 - g^2</code><br>. The softmax output, which a be n<br>  derivative of g is calculated as g0 1⁄4 1  g2, making it easy to work with in BP algorithms.</p>
+<h3 id="Optiization-objective"><a href="#Optiization-objective" class="headerlink" title="Optiization objective"></a>Optiization objective</h3><p>An optimization objective is often composed of a loss function and a regularization term. The loss function measures the discrepancy between the output of the network depend on model parameters $ (\theta)f(x|\theta) $ and the expected result y, e.g., the true class labels in classification tasks, or the true level in prediction tasks. However, a good learning algorithm performs well not only on the training data, but also on the test data. A collection of strategies designed to reduce the test error is called regularization [62]. Some regularization terms apply penalties to parameters to prevent overly complex models. Here, we briefly introduce the commonly used loss function $ L(f(x|\theta),y) $ and regularization term $ \Omega (\theta) $. The optimization objective is usually defined as:</p>
+<script type="math/tex; mode=display">
+\widetilde{L}(X,y,\theta) = L(f(x|\theta),y)+\alpha\Omega(\theta)</script><p>where $\alpha$ is a balance of these two components, and in practice, the loss function is usually calculated across randomly-sampled training samples rather than the data-generating distribution, since the latter is unknown.</p>
+<h4 id="Loss-function"><a href="#Loss-function" class="headerlink" title="Loss function"></a>Loss function</h4><p>Most DNNs use cross entropy between the training data and the model distribution as the loss function. The most commonly used form of cross entropy is the negative conditional log-likelihood: $L(f(x|\theta),y)=-logP(f=y|x,\theta)$ . This is a collection of loss functions corresponding to the distribution of $y$ given the value of input variable $x$. Here, we introduce several commonly used loss functions that follow this pattern:<br>Suppose $y$ is continuous and has a Gaussian distribution over a given variable $x$. The loss function would be:</p>
+<script type="math/tex; mode=display">
+L(f(x|\theta),y) = -log[\sqrt{\frac{1}{2\pi\sigma^2}}exp(-\frac{1}{2\sigma^2}(y-f)^2)]
+=\frac{1}{2\sigma^2}(y-f)^2+\frac{1}{2}log(2\pi\sigma^2)</script><p>Which is equivalently described as the squared error. The squared error was the most commonly used loss function in the 1980s [62]. However, it often tends to penalize outliers excessively, leading to slower convergence rates.<br>If $y$ follows the Bernoulli distribution, then the loss function will be:</p>
+<script type="math/tex; mode=display">
+L(f(x|\theta),y) = -ylogf(x|\theta)-(1-y)log(1-f(x|\theta))</script><p>When y is discrete and has only two values, for instance, $y\in\{1,2,3…k\}$, we can take the softmax value (see commonly-used activation functions) as the probability over the categories. Then the loss function will be:</p>
+<script type="math/tex; mode=display">
+L(f(x|\theta),y) = -log(\frac{e^{a_{y}}}{\sum_{j}e^{a_{j}}}) = -a_y+log(\sum_je^{a_j})</script><h4 id="Regularizaiton-term"><a href="#Regularizaiton-term" class="headerlink" title="Regularizaiton term"></a>Regularizaiton term</h4><ul>
+<li>L2 parameter regularization is the most common form of regularization term and contributes to the convexity of the optimization objective, leading to an easy solution for the minimum using the Hessian matrix [78,79]. L2 parameter regularization can be defined as<script type="math/tex; mode=display">
+\Omega(\theta) = \frac{1}{2}||w||^2</script>where $\Omega$ represents weights of connecting units in the network (the same as in the following context).</li>
+<li>L1 parameter regularizaiton results in a sparser solution of x and tends to learn small groups of features. L1 parameter regularization can be defined as<script type="math/tex; mode=display">
+\Omega(\theta) = ||w|| _ {1} = \sum|w_i|</script></li>
+<li>Frobenius parameter regularization is induced by the inner product and is block decomposable, therefore it is easier to compute [80,81]. Frobenius parameter regularization can be defined as<script type="math/tex; mode=display">
+w(\theta)=\sqrt{\sum_i\sum_j|w_{ij}^2|} = \sqrt{\sum_{i=1}^{rank(w)}\sigma_i^2}</script>where $\sigma$ is the $i$-th largest singular value. Frobenius parameter regularization has a function similar to nuclear norm in terms of regularization.</li>
+<li>Nuclear norm has been widely used as regularization in recent years [82–84]. Nuclear norm regularization measures the sum of the singular values of $x$ and can be defined as<script type="math/tex; mode=display">
+\Omega(\theta) = ||w||_* = \sum_{i=1}^{rank(w)}\sigma_i</script></li>
+</ul>
 
   </div>
   <footer class="article-footer">
@@ -244,6 +284,8 @@
 
 
           <div align="center" class="main-footer">
+<!-- 根据页面mathjax变量决定是否加载MathJax数学公式js -->
+
 <span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span>
 <script>
     var now = new Date(); 
