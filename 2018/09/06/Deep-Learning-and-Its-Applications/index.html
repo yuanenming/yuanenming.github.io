@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+<title>
+  
+    Deep Learning and Its Applications
+  
+</title>
+
+<meta name="description" content="Recently, I read a review paper “Deep Learning and Its Applications in Biomedicine” published on Genomics Proteomics Bioinformatics, which I think is well-organized. So Today I will extract some main">
+<meta name="keywords" content="Machine Learning">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Deep Learning and Its Applications">
+<meta property="og:url" content="http://www.yuanenming.com/2018/09/06/Deep-Learning-and-Its-Applications/index.html">
+<meta property="og:site_name" content="Yuan Enming">
+<meta property="og:description" content="Recently, I read a review paper “Deep Learning and Its Applications in Biomedicine” published on Genomics Proteomics Bioinformatics, which I think is well-organized. So Today I will extract some main">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="http://www.yuanenming.com/2018/09/06/Deep-Learning-and-Its-Applications/1.png">
+<meta property="og:image" content="http://www.yuanenming.com/2018/09/06/Deep-Learning-and-Its-Applications/2.png">
+<meta property="og:updated_time" content="2018-09-06T11:18:34.064Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Deep Learning and Its Applications">
+<meta name="twitter:description" content="Recently, I read a review paper “Deep Learning and Its Applications in Biomedicine” published on Genomics Proteomics Bioinformatics, which I think is well-organized. So Today I will extract some main">
+<meta name="twitter:image" content="http://www.yuanenming.com/2018/09/06/Deep-Learning-and-Its-Applications/1.png">
+
+
+  <link rel="alternative" href="/atom.xml" title="Yuan Enming" type="application/atom+xml">
+
+
+
+  <link rel="icon" href="/images/ming.ico">
+
+
+<link rel="stylesheet" href="/perfect-scrollbar/css/perfect-scrollbar.min.css">
+<link rel="stylesheet" href="/styles/main.css">
+
+
+
+
+
+</head>
+<body
+  
+    class="monochrome"
+  
+  >
+  <div class="mobile-header">
+  <button class="sidebar-toggle" type="button">
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+  </button>
+  <a class="title" href="/">Yuan Enming</a>
+</div>
+
+  <div class="main-container">
+    <div class="sidebar">
+  <div class="header">
+    <h1 class="title"><a href="/">Yuan Enming</a></h1>
+    
+      <p class="subtitle">
+        Shanghai Jiao Tong University
+      </p>
+    
+    <div class="info">
+      <div class="content">
+        
+          <div class="description">If you have great talents, industry will improve them; if you have but moderate abilities, industry will supply their deficiency.</div>
+        
+        
+          <div class="author">—Reynolds</div>
+        
+      </div>
+      
+        <div class="avatar">
+          
+            <a href="/about"><img src="/portrait.JPG"></a>
+          
+        </div>
+      
+    </div>
+  </div>
+  <div class="body">
+    
+      
+        <ul class="nav">
+          
+            
+              <li class="tag-list-container">
+                <a href="javascript:;">Tag</a>
+                <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/testing/">-testing</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Algorithm/">Algorithm</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Blog/">Blog</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Book/">Book</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Machine-Learning/">Machine Learning</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tour/">Tour</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/github/">github</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/toturials/">toturials</a><span class="tag-list-count">1</span></li></ul>
+              </li>
+            
+          
+            
+              <li class="archive-list-container">
+                <a href="javascript:;">Archive</a>
+                <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/">2018</a><span class="archive-list-count">12</span></li></ul>
+              </li>
+            
+          
+        </ul>
+      
+        <ul class="nav">
+          
+            
+              <li>
+                <a href="https://www.yuanenming.cn/archives" title="Blog" target="_blank" rel="noopener">Blog</a>
+              </li>
+            
+          
+            
+              <li>
+                <a href="https://github.com/yuanenming" title="Github" target="_blank" rel="noopener">Github</a>
+              </li>
+            
+          
+            
+              <li>
+                <a href="https://weibo.com/u/5022114373" title="weibo" target="_blank" rel="noopener">weibo</a>
+              </li>
+            
+          
+            
+              <li>
+                <a href="https://www.zhihu.com/people/yuan-en-ming/activities" title="zhihu" target="_blank" rel="noopener">zhihu</a>
+              </li>
+            
+          
+            
+              <li>
+                <a href="/yuanenming@sjtu.edu.cn" title="e-mail">e-mail</a>
+              </li>
+            
+          
+        </ul>
+      
+    
+  </div>
+</div>
+
+    <div class="main-content">
+      
+        <div style="max-width: 1000px">
+      
+          <article id="post-Deep-Learning-and-Its-Applications" class="article article-type-post">
+  
+    <h1 class="article-header">
+      Deep Learning and Its Applications
+      
+    </h1>
+  
+
+  
+
+  <div class="article-info">
+    <span class="article-date">
+  2018-09-06
+</span>
+
+    
+
+    
+	<span class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Machine-Learning/">Machine Learning</a></li></ul>
+	</span>
+
+
+  </div>
+  <div class="article-entry">
+    <p>Recently, I read a review paper “Deep Learning and Its Applications in Biomedicine” published on <code>Genomics Proteomics Bioinformatics</code>, which I think is well-organized. So Today I will extract some main ideas.</p>
+<a id="more"></a>
+<h2 id="History"><a href="#History" class="headerlink" title="History"></a>History</h2><h3 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h3><p>\frac{s}{s}<br>Deep learning is a recent and fast-growing field of machine learning. It attempts to model abstraction from large-scale data by employing multi-layered deep neural networks (DNNs), thus making sense of data such as images, sounds, and texts. Deep learning in general has two properties:</p>
+<ol>
+<li>multiple layers of nonlinear processing units</li>
+<li>supervised or unsupervised learning of feature presentations on each layer.<br>The early framework for deep learning was built on artificial neural networks (ANNs) in the 1980s, while the real impact of deep learning became apparent in 2006. Since then, deep learning has been applied to a wide range of fields, including automatic speech recognition, image recognition, natural language processing, drug discovery, and bioinformatics.<br>The past decades have witnessed a massive growth in biomedical data, such as genomic sequences, protein structures, and medical images, due to the advances of highthroughput technologies. This deluge of biomedical big data necessitates effective and efficient computational tools to store, analyze, and interpret such data. Deep learning-based algorithmic frameworks shed light on these challenging problems.</li>
+</ol>
+<h3 id="The-development-of-ANNs"><a href="#The-development-of-ANNs" class="headerlink" title="The development of ANNs"></a>The development of ANNs</h3><p>As a basis for deep learning, ANNs were inspired by biological processes in the 1960s, when it was discovered that different visual cortex cells were activated when cats visualized different objects. These studies illustrated that there were connections between the eyes and the cells of the visual cortex, and that the information was processed layer by layer in the visual system. ANNs mimicked the perception of objects by connecting artificial neurons within layers that could extract the features of objects. However, ANN research stagnated after the 1960s, due to the low capability resulting from its shallow structures and the limited computational capacity of computers at that time.<br>Thanks to the improvement in computer capabilities and methodologies, ANNs with efficient backpropagation(BP) facilitated studies on pattern recognition. In a neural network with BP, classifications were first processed by the ANN model, and weights were then modified by evaluating the difference between the predicted and the true class labels. Although BP helped to minimize errors through gradient descent, it seemed to work only for certain types of ANNs. Through improving the steeper gradients with BP, several learning methods were proposed, such as momentum, adaptive learning rate, least-squares methods, quasi-Newton methods, and conjugate gradient (CG). However, due to the complexity of ANNs, other simple machine learning algorithms, such as support vector machines (SVMs), random forest, and k-nearest neighbors algorithms (k-NN), gradually overtook ANNs in popularity (Figure 1).<br><img src="/2018/09/06/Deep-Learning-and-Its-Applications/1.png" alt=""></p>
+<h3 id="The-development-of-deep-learning"><a href="#The-development-of-deep-learning" class="headerlink" title="The development of deep learning"></a>The development of deep learning</h3><p>An ANN with more hidden layers offers much higher capacity for feature extraction. However, an ANN often converges to the local optimum, or encounters gradient diffusion when it contains deep and complex structures. A gradient propagated backwards rapidly diminishes in magnitude along the layers, resulting in slight modification to the weights in the layers near the input (<a href="http://deeplearning.stanford.edu/wiki/index.php/UFLDL_Tutorial" target="_blank" rel="noopener">http://deeplearning.stanford.edu/wiki/index.php/UFLDL_Tutorial</a>). Subsequently, a layer-wise pre-training deep auto-encoder (AE) network was proposed, bringing ANNs to a new stage of development. In this network, each layer is trained by minimizing the discrepancy between the original and the reconstructed data. The layer-wise pre-training breaks the barrier of gradient diffusion, and also results in a better choice of weights for deep neural networks (DNNs), thereby preventing the reconstructed data from reaching a local optimum where the local optimum is usually caused by the random selection of initial weights. In addition, the employment of graphic processing units (GPUs) also renews the interest of researchers in deep learning.<br>With the focus of more attention and efforts, deep learning has burgeoned in recent years and has been applied broadly in industry. For instance, deep belief networks (DBNs) and stacks of restricted Boltzmann machines (RBMs) have been applied in speech and image recognition and natural language processing. Proposed to better mimick animals’ perceptions of objects, convolutional neural networks (CNN) have been widely applied in image recognition, image segmentation, video recognition, and natural language processing. Recurrent neural networks (RNNs) are another class of ANNs that exhibit dynamic behavior, with artificial neurons that are associated with time steps. RNNs have become the primary tool for handling sequential data, and have been applied in natural language processing and handwriting recognition. Later on, variants of AEs, including sparse AEs, stacked AEs (SAEs), and de-noising AEs, have also gained popularity in pre-training deep networks.<br>Although applications of deep learning have been primarily focused on image recognition, video and sound analyses, as well as natural language processing, it also opens doors in life sciences, which will be discussed in detail in the next sections.</p>
+<h3 id="Brief-description-of-deep-learning"><a href="#Brief-description-of-deep-learning" class="headerlink" title="Brief description of deep learning"></a>Brief description of deep learning</h3><p>Although the underlying assumptions and theories are different, the basic idea and processes for feature extraction in most deep NN (DNN) architectures are similar. In the forward pass, the network is activated by an input to the first layer, which then spreads the activation to the final layer along the weighted connections, and generates the prediction or reconstruction results. In the backward pass, the weights of connections are tuned by minimizing the difference between the predicted and the real data.</p>
+<h2 id="Basic-Concepts"><a href="#Basic-Concepts" class="headerlink" title="Basic Concepts"></a>Basic Concepts</h2><h3 id="Activation-functions"><a href="#Activation-functions" class="headerlink" title="Activation functions"></a>Activation functions</h3><p>Activation functions form the non-linear layers in all deep learning frameworks; and their combinations with other layers are used to simulate the non-linear transformation from the input to the output. Therefore, better feature extraction can be achieved by selecting appropriate activation functions. Here, we introduce several commonly-used activation functions, represented by <code>g</code>.</p>
+<ul>
+<li>Sigmoid function:<br><img src="/2018/09/06/Deep-Learning-and-Its-Applications/2.png" alt=""><br>where a is the input from the input from the front layer. A sigmoid function transforms variables to values ranging from 0 to 1 and is commonly used to produce a Bernoulli distribution.</li>
+<li>Hyperbolic tangent:</li>
+</ul>
+<p>Here, the derivative of <code>g</code> is calculated as <code>g = 1 - g^2</code><br>. The softmax output, which a be n<br>  derivative of g is calculated as g0 1⁄4 1  g2, making it easy to work with in BP algorithms.</p>
+
+  </div>
+  <footer class="article-footer">
+    
+  <div class="cc">
+    <a href="http://creativecommons.org/licenses/by-sa/4.0/deed.e" target="_blank" title="Attribution-ShareAlike">
+      <img src="/images/cc/cc.png">
+      
+          <img src="/images/cc/by.png">
+        
+          <img src="/images/cc/sa.png">
+      
+      <span>
+        This work is licensed under a Creative Commons Attribution-ShareAlike 4.0 International License.
+      </span>
+    </a>
+  </div>
+
+
+    
+
+  </footer>
+  <footer class="article-footer">
+  
+      <section class="livere" id="comments">
+    <!-- 来必力City版安装代码 -->
+<div id="lv-container" data-id="city" data-uid="MTAyMC8zODI5Ny8xNDgyNQ==">
+ <script type="text/javascript">
+   (function(d, s) {
+       var j, e = d.getElementsByTagName(s)[0];
+
+       if (typeof LivereTower === 'function') { return; }
+
+       j = d.createElement(s);
+       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+       j.async = true;
+
+       e.parentNode.insertBefore(j, e);
+   })(document, 'script');
+ </script>
+<noscript> 为正常使用来必力评论功能请激活JavaScript</noscript>
+</div>
+<!-- City版安装代码已完成 -->
+</section>
+    
+  </footer>
+</article>
+
+
+
+
+
+
+
+          <div align="center" class="main-footer">
+<span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span>
+<script>
+    var now = new Date(); 
+    function createtime() { 
+        var grt= new Date("07/20/2018 12:49:00");//此处修改你的建站时间或者网站上线时间 
+        now.setTime(now.getTime()+250); 
+        days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days); 
+        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours); 
+        if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum); 
+        mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;} 
+        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum); 
+        snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;} 
+        document.getElementById("timeDate").innerHTML = "本站已安全运行 "+dnum+" 天 "; 
+        document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒"; 
+    } 
+setInterval("createtime()",250);
+</script>
+  
+    © 2018 Yuan Enming - Powered by <a href="http://hexo.io" target="_blank">Hexo</a> - Theme <a href="https://github.com/denjones/hexo-theme-chan" target="_blank">Chan</a>
+  
+  <script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+  
+  _st('install','iCyu54VhBnr8QxsJnwf6','2.0.0');
+</script>
+</div>
+
+      
+        </div>
+      
+    </div>
+  </div>
+  <script src="//apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+
+  <link rel="stylesheet" href="/PhotoSwipe/photoswipe.css">
+  <link rel="stylesheet" href="/PhotoSwipe/default-skin/default-skin.css">
+
+  <!-- Root element of PhotoSwipe. Must have class pswp. -->
+  <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe.
+             It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+      <!-- Container that holds slides.
+                PhotoSwipe keeps only 3 of them in the DOM to save memory.
+                Don't modify these 3 pswp__item elements, data is added later on. -->
+      <div class="pswp__container">
+        <div class="pswp__item"></div>
+        <div class="pswp__item"></div>
+        <div class="pswp__item"></div>
+      </div>
+
+      <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+      <div class="pswp__ui pswp__ui--hidden">
+
+        <div class="pswp__top-bar">
+
+          <!--  Controls are self-explanatory. Order can be changed. -->
+
+          <div class="pswp__counter"></div>
+
+          <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+          <button class="pswp__button pswp__button--share" title="Share"></button>
+
+          <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+          <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+          <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+          <!-- element will get class pswp__preloader--active when preloader is running -->
+          <div class="pswp__preloader">
+            <div class="pswp__preloader__icn">
+              <div class="pswp__preloader__cut">
+                <div class="pswp__preloader__donut"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+          <div class="pswp__share-tooltip"></div>
+        </div>
+
+        <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button>
+
+        <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button>
+
+        <div class="pswp__caption">
+          <div class="pswp__caption__center"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="/PhotoSwipe/photoswipe.js"></script>
+  <script src="/PhotoSwipe/photoswipe-ui-default.js"></script>
+
+
+<script src="/perfect-scrollbar/js/min/perfect-scrollbar.min.js"></script>
+<script src="/scripts/main.js"></script>
+
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>
