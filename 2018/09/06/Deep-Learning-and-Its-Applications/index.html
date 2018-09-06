@@ -21,7 +21,7 @@
 <meta property="og:description" content="Recently, I read a review paper “Deep Learning and Its Applications in Biomedicine” published on Genomics Proteomics Bioinformatics, which I think is well-organized. So Today I will extract some main">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="http://www.yuanenming.com/2018/09/06/Deep-Learning-and-Its-Applications/1.png">
-<meta property="og:updated_time" content="2018-09-06T13:35:19.862Z">
+<meta property="og:updated_time" content="2018-09-06T13:43:41.306Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Deep Learning and Its Applications">
 <meta name="twitter:description" content="Recently, I read a review paper “Deep Learning and Its Applications in Biomedicine” published on Genomics Proteomics Bioinformatics, which I think is well-organized. So Today I will extract some main">
@@ -195,38 +195,38 @@ g(a) =tan h(a) = \frac{e^{a}-e^{-a}}{e^{a}+e^{-a}}</script><p>Here, the derivati
 g(a) = \frac{e^{a_{i}}}{\sum e^{a_{j}}}</script><p>The softmax output, which $ a_{n} $ be considered as a probability distribution over the categories, is commonly used in the final layer.</p>
 </li>
 <li>Rectified linear unit (ReLU):<script type="math/tex; mode=display">
-g(a)=max(0,a)</script>This activation function and its variants show superior performance in many cases and are the most popular activation function in deep learning so far [68,70–72]. ReLU can also solve the gradient diffusion problem [73,74].</li>
+g(a)=max(0,a)</script>This activation function and its variants show superior performance in many cases and are the most popular activation function in deep learning so far. ReLU can also solve the gradient diffusion problem.</li>
 <li><p>Softplus:</p>
 <script type="math/tex; mode=display">
 g(a) = log(1+e^{a})</script><p>This is one of the variants of ReLU, representing a smooth approximation of ReLU (in this article, the log always represents the natural logarithm).</p>
 </li>
 <li><p>Absolute value rectification:</p>
 <script type="math/tex; mode=display">
-g(a) = |a|</script><p>This function is useful when the pooling layer takes the average value in CNNs [75], thus preventing otherwise the negative features and the positive features from diminishing.</p>
+g(a) = |a|</script><p>This function is useful when the pooling layer takes the average value in CNNs, thus preventing otherwise the negative features and the positive features from diminishing.</p>
 </li>
 <li><p>Maxout:</p>
 <script type="math/tex; mode=display">
-g_{i}(x)=max(b_{i} + w_{i} \cdot x)</script><p>The weight matrix in this function is a three-dimensional array, where the third array corresponds to the connection of the neighboring layers [76].</p>
+g_{i}(x)=max(b_{i} + w_{i} \cdot x)</script><p>The weight matrix in this function is a three-dimensional array, where the third array corresponds to the connection of the neighboring layers.</p>
 </li>
 </ul>
-<h3 id="Optiization-objective"><a href="#Optiization-objective" class="headerlink" title="Optiization objective"></a>Optiization objective</h3><p>An optimization objective is often composed of a loss function and a regularization term. The loss function measures the discrepancy between the output of the network depend on model parameters $ (\theta)f(x|\theta) $ and the expected result y, e.g., the true class labels in classification tasks, or the true level in prediction tasks. However, a good learning algorithm performs well not only on the training data, but also on the test data. A collection of strategies designed to reduce the test error is called regularization [62]. Some regularization terms apply penalties to parameters to prevent overly complex models. Here, we briefly introduce the commonly used loss function $ L(f(x|\theta),y) $ and regularization term $ \Omega (\theta) $. The optimization objective is usually defined as:</p>
+<h3 id="Optiization-objective"><a href="#Optiization-objective" class="headerlink" title="Optiization objective"></a>Optiization objective</h3><p>An optimization objective is often composed of a loss function and a regularization term. The loss function measures the discrepancy between the output of the network depend on model parameters $ (\theta)f(x|\theta) $ and the expected result y, e.g., the true class labels in classification tasks, or the true level in prediction tasks. However, a good learning algorithm performs well not only on the training data, but also on the test data. A collection of strategies designed to reduce the test error is called regularization. Some regularization terms apply penalties to parameters to prevent overly complex models. Here, we briefly introduce the commonly used loss function $ L(f(x|\theta),y) $ and regularization term $ \Omega (\theta) $. The optimization objective is usually defined as:</p>
 <script type="math/tex; mode=display">
 \widetilde{L}(X,y,\theta) = L(f(x|\theta),y)+\alpha\Omega(\theta)</script><p>where $\alpha$ is a balance of these two components, and in practice, the loss function is usually calculated across randomly-sampled training samples rather than the data-generating distribution, since the latter is unknown.</p>
 <h4 id="Loss-function"><a href="#Loss-function" class="headerlink" title="Loss function"></a>Loss function</h4><p>Most DNNs use cross entropy between the training data and the model distribution as the loss function. The most commonly used form of cross entropy is the negative conditional log-likelihood: $L(f(x|\theta),y)=-logP(f=y|x,\theta)$ . This is a collection of loss functions corresponding to the distribution of $y$ given the value of input variable $x$. Here, we introduce several commonly used loss functions that follow this pattern:<br>Suppose $y$ is continuous and has a Gaussian distribution over a given variable $x$. The loss function would be:</p>
 <script type="math/tex; mode=display">
 L(f(x|\theta),y) = -log[\sqrt{\frac{1}{2\pi\sigma^2}}exp(-\frac{1}{2\sigma^2}(y-f)^2)]
-=\frac{1}{2\sigma^2}(y-f)^2+\frac{1}{2}log(2\pi\sigma^2)</script><p>Which is equivalently described as the squared error. The squared error was the most commonly used loss function in the 1980s [62]. However, it often tends to penalize outliers excessively, leading to slower convergence rates.<br>If $y$ follows the Bernoulli distribution, then the loss function will be:</p>
+=\frac{1}{2\sigma^2}(y-f)^2+\frac{1}{2}log(2\pi\sigma^2)</script><p>Which is equivalently described as the squared error. The squared error was the most commonly used loss function in the 1980s. However, it often tends to penalize outliers excessively, leading to slower convergence rates.<br>If $y$ follows the Bernoulli distribution, then the loss function will be:</p>
 <script type="math/tex; mode=display">
 L(f(x|\theta),y) = -ylogf(x|\theta)-(1-y)log(1-f(x|\theta))</script><p>When y is discrete and has only two values, for instance, $y\in\{1,2,3…k\}$, we can take the softmax value (see commonly-used activation functions) as the probability over the categories. Then the loss function will be:</p>
 <script type="math/tex; mode=display">
 L(f(x|\theta),y) = -log(\frac{e^{a_{y}}}{\sum_{j}e^{a_{j}}}) = -a_y+log(\sum_je^{a_j})</script><h4 id="Regularizaiton-term"><a href="#Regularizaiton-term" class="headerlink" title="Regularizaiton term"></a>Regularizaiton term</h4><ul>
-<li>L2 parameter regularization is the most common form of regularization term and contributes to the convexity of the optimization objective, leading to an easy solution for the minimum using the Hessian matrix [78,79]. L2 parameter regularization can be defined as<script type="math/tex; mode=display">
+<li>L2 parameter regularization is the most common form of regularization term and contributes to the convexity of the optimization objective, leading to an easy solution for the minimum using the Hessian matrix. L2 parameter regularization can be defined as<script type="math/tex; mode=display">
 \Omega(\theta) = \frac{1}{2}||w||^2</script>where $\Omega$ represents weights of connecting units in the network (the same as in the following context).</li>
 <li>L1 parameter regularizaiton results in a sparser solution of x and tends to learn small groups of features. L1 parameter regularization can be defined as<script type="math/tex; mode=display">
 \Omega(\theta) = ||w|| _ {1} = \sum|w_i|</script></li>
-<li>Frobenius parameter regularization is induced by the inner product and is block decomposable, therefore it is easier to compute [80,81]. Frobenius parameter regularization can be defined as<script type="math/tex; mode=display">
+<li>Frobenius parameter regularization is induced by the inner product and is block decomposable, therefore it is easier to compute. Frobenius parameter regularization can be defined as<script type="math/tex; mode=display">
 w(\theta)=\sqrt{\sum_i\sum_j|w_{ij}^2|} = \sqrt{\sum_{i=1}^{rank(w)}\sigma_i^2}</script>where $\sigma$ is the $i$-th largest singular value. Frobenius parameter regularization has a function similar to nuclear norm in terms of regularization.</li>
-<li>Nuclear norm has been widely used as regularization in recent years [82–84]. Nuclear norm regularization measures the sum of the singular values of $x$ and can be defined as<script type="math/tex; mode=display">
+<li>Nuclear norm has been widely used as regularization in recent years. Nuclear norm regularization measures the sum of the singular values of $x$ and can be defined as<script type="math/tex; mode=display">
 \Omega(\theta) = ||w||_* = \sum_{i=1}^{rank(w)}\sigma_i</script></li>
 </ul>
 
