@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+<title>
+  
+    Information Theory in Machine Learning
+  
+</title>
+
+<meta name="description" content="Materials, energy and information is the fundermental things on the earth.信息论与信息熵是 AI 或机器学习中非常重要的概念，我们经常需要使用它的关键思想来描述概率分布或者量化概率分布之间的相似性。在本文中，我们从最基本的自信息和信息熵到交叉熵讨论了信息论的基础，再由最大似然估计推导出 KL 散度而加强我们对量化分布间相似性">
+<meta name="keywords" content="Machine Learning">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Information Theory in Machine Learning">
+<meta property="og:url" content="http://www.yuanenming.com/2018/09/08/Information-theory-in-Machine-Learning/index.html">
+<meta property="og:site_name" content="Yuan Enming">
+<meta property="og:description" content="Materials, energy and information is the fundermental things on the earth.信息论与信息熵是 AI 或机器学习中非常重要的概念，我们经常需要使用它的关键思想来描述概率分布或者量化概率分布之间的相似性。在本文中，我们从最基本的自信息和信息熵到交叉熵讨论了信息论的基础，再由最大似然估计推导出 KL 散度而加强我们对量化分布间相似性">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="http://www.yuanenming.com/2018/09/08/Information-theory-in-Machine-Learning/1.jpg">
+<meta property="og:updated_time" content="2018-09-08T14:19:06.361Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Information Theory in Machine Learning">
+<meta name="twitter:description" content="Materials, energy and information is the fundermental things on the earth.信息论与信息熵是 AI 或机器学习中非常重要的概念，我们经常需要使用它的关键思想来描述概率分布或者量化概率分布之间的相似性。在本文中，我们从最基本的自信息和信息熵到交叉熵讨论了信息论的基础，再由最大似然估计推导出 KL 散度而加强我们对量化分布间相似性">
+<meta name="twitter:image" content="http://www.yuanenming.com/2018/09/08/Information-theory-in-Machine-Learning/1.jpg">
+
+
+  <link rel="alternative" href="/atom.xml" title="Yuan Enming" type="application/atom+xml">
+
+
+
+  <link rel="icon" href="/images/ming.ico">
+
+
+<link rel="stylesheet" href="/perfect-scrollbar/css/perfect-scrollbar.min.css">
+<link rel="stylesheet" href="/styles/main.css">
+
+
+
+
+
+</head>
+<body
+  
+    class="monochrome"
+  
+  >
+  <div class="mobile-header">
+  <button class="sidebar-toggle" type="button">
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+  </button>
+  <a class="title" href="/">Yuan Enming</a>
+</div>
+
+  <div class="main-container">
+    <div class="sidebar">
+  <div class="header">
+    <h1 class="title"><a href="/">Yuan Enming</a></h1>
+    
+      <p class="subtitle">
+        Shanghai Jiao Tong University
+      </p>
+    
+    <div class="info">
+      <div class="content">
+        
+          <div class="description">If you have great talents, industry will improve them; if you have but moderate abilities, industry will supply their deficiency.</div>
+        
+        
+          <div class="author">—Reynolds</div>
+        
+      </div>
+      
+        <div class="avatar">
+          
+            <a href="/about"><img src="/portrait.JPG"></a>
+          
+        </div>
+      
+    </div>
+  </div>
+  <div class="body">
+    
+      
+        <ul class="nav">
+          
+            
+              <li class="tag-list-container">
+                <a href="javascript:;">Tag</a>
+                <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/testing/">-testing</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Algorithm/">Algorithm</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Blog/">Blog</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Book/">Book</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Machine-Learning/">Machine Learning</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tour/">Tour</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/github/">github</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/toturials/">toturials</a><span class="tag-list-count">1</span></li></ul>
+              </li>
+            
+          
+            
+              <li class="archive-list-container">
+                <a href="javascript:;">Archive</a>
+                <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/">2018</a><span class="archive-list-count">12</span></li></ul>
+              </li>
+            
+          
+        </ul>
+      
+        <ul class="nav">
+          
+            
+              <li>
+                <a href="https://www.yuanenming.cn/archives" title="Blog" target="_blank" rel="noopener">Blog</a>
+              </li>
+            
+          
+            
+              <li>
+                <a href="https://github.com/yuanenming" title="Github" target="_blank" rel="noopener">Github</a>
+              </li>
+            
+          
+            
+              <li>
+                <a href="https://weibo.com/u/5022114373" title="weibo" target="_blank" rel="noopener">weibo</a>
+              </li>
+            
+          
+            
+              <li>
+                <a href="https://www.zhihu.com/people/yuan-en-ming/activities" title="zhihu" target="_blank" rel="noopener">zhihu</a>
+              </li>
+            
+          
+            
+              <li>
+                <a href="/yuanenming@sjtu.edu.cn" title="e-mail">e-mail</a>
+              </li>
+            
+          
+        </ul>
+      
+    
+  </div>
+</div>
+
+    <div class="main-content">
+      
+        <div style="max-width: 1000px">
+      
+          <article id="post-Information-theory-in-Machine-Learning" class="article article-type-post">
+  
+    <h1 class="article-header">
+      Information Theory in Machine Learning
+      
+    </h1>
+  
+
+  
+
+  <div class="article-info">
+    <span class="article-date">
+  2018-09-08
+</span>
+
+    
+
+    
+	<span class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Machine-Learning/">Machine Learning</a></li></ul>
+	</span>
+
+
+  </div>
+  <div class="article-entry">
+    <p>Materials, energy and information is the fundermental things on the earth.<br>信息论与信息熵是 AI 或机器学习中非常重要的概念，我们经常需要使用它的关键思想来描述概率分布或者量化概率分布之间的相似性。在本文中，我们从最基本的自信息和信息熵到交叉熵讨论了信息论的基础，再由最大似然估计推导出 KL 散度而加强我们对量化分布间相似性的理解。最后我们简要讨论了信息熵在机器学习中的应用，包括通过互信息选择决策树的特征、通过交叉熵衡量分类问题的损失和贝叶斯学习等。</p>
+<a id="more"></a>
+<h2 id="信息论与香农"><a href="#信息论与香农" class="headerlink" title="信息论与香农"></a>信息论与香农</h2><p>信息论是研究信息及其传输的一般规律的学科，运用数学和其他相关方法研究信息的性质、计量以及获得、传输、存储、处理和交换等。香农被称为是“信息论之父”，通常将香农于1948年10月发表于《贝尔系统技术学报》上的论文《A Mathematical Theory of Communication》作为现代信息论研究的开端,在该文中，香农给出了信息熵的定义,从此信息量的度量有了更精确的数学描述，而不再是以“多”或“少”来衡量，信息论中的很多概念都有跨学科的应用，不只在通信领域，在编码学、密码学、数据压缩、检测与估计理论中就广泛地运用了信息论的相关概念，机器学习和深度学习也涉及到许多信息论的知识，下图是香农半神。<br><img src="/2018/09/08/Information-theory-in-Machine-Learning/1.jpg" alt=""></p>
+<h2 id="自信息"><a href="#自信息" class="headerlink" title="自信息"></a>自信息</h2><p>由于信息论首先是应用在通信领域的，我们沿用通信系统的假设，在定义信息熵之前，先给出“自信息”的度量，对于一个分布为p(x)随机变量X，自信息表示为：<script type="math/tex">I(X)=-logp(x)</script><br>为了理解这个公式的含义，举个例子，宅男A说他昨晚约了校花出去玩,我们的第一反应是很吃惊，随口一句，“卧槽，怎么可能，信息量太大了”，而当男神B说他十一准备约女朋友的云南旅游，我们的反应除了“卧槽，禽兽，好好玩【滑稽】”就没了。为什么呢?因为按照常理，宅男A约到校花的概率很小，基本上不可能发生的，而男神B约他女票已经大家习以为常的事情，这种事情发生的概率本来就很大，恭喜你已经有了直观的对信息量多少的概念了，这时我们再看自信息的公式，其很完美的契合了我们对信息量的直观感受，就是概率越小的事情，信息量越大，打雷快要下雨蕴含的信息量不多，但是学渣考了满分信息量很大。</p>
+<h2 id="信息熵"><a href="#信息熵" class="headerlink" title="信息熵"></a>信息熵</h2><p>说完了自信息的概念，我们来引入信息熵，对于分布为p(x)的随机变量X，其信息熵定义为：</p>
+<script type="math/tex; mode=display">H(X)=-\int p(x)logp(x)dx</script><p>对于离散情况：</p>
+<script type="math/tex; mode=display">H(X)=-\sum p(x_i)logp(x_i)</script><p>信息熵总是大于0的，从定义公式来看，信息熵可以理解为自信息的数学期望。那些接近确定性的分布，信息熵比较低，而越是接近均匀分布的，信息熵比较高，这可以对信息熵求最值推导出。这个和越不容易发生的事情信息越大这个基本思想是一致的。从这个角度看，信息可以看做是不确定性的衡量，而信息熵就是对这种不确定性的数学描述（换句话说，就是消除系统不确定性所需的信息量，而不是系统的信息量）。</p>
+<h2 id="交叉熵与相对熵"><a href="#交叉熵与相对熵" class="headerlink" title="交叉熵与相对熵"></a>交叉熵与相对熵</h2><p>信息熵使用来衡量一个分布p其自身的不确定性，相对熵则用来衡量两个分布p和q之间的差异，在信息论中也称为KL散度，其定义为：<script type="math/tex">D_{KL}(p||q)=\int p(x)log\frac {p(x)}{q(x)}=-\int p(x)logq(x)dx-(-\int p(x)logp(x)dx)</script></p>
+<ul>
+<li>相对熵公式的前半部分就是交叉熵。相对熵只有在 <script type="math/tex">p(x)=q(x)</script>时,值才为0。若p和q不同分布，其值就会大于0，证明如下：<script type="math/tex; mode=display">
+D_{KL}(p||q)=\int p(x)log\frac {p(x)}{q(x)}=E(log\frac {p(x)}{q(x)})≥logE\frac {p(x)}{q(x)}=-log\int p(x)\frac {q(x)}{p(x)}dx=-log\int q(x)dx=0</script>上式中不等号利用的是Jensen不等式，当p=q时，等号成立。在机器学习中，比如分类问题，如果把结果当作是概率分布来看，标签表示的就是数据真实的概率分布，由logistic函数和softmax函数产生的结果其实是对于数据的预测分布，预测分布和真实分布差值叫做KL散度或者是相对熵。若p(x)是数据的真实概率分布，q(x)是由数据计算假设的概率分布，我们目的就是让q（x）尽可能地逼近甚至等于p(x)，从而使得相对熵接近最小值0。在统计学中，概率学派认为真实的概率分布是固定的（例如抛硬币正反面都是概率是0.5），相对熵公式的后半部分就成了一个常数，最小化相对熵就等效于最小化交叉熵。值得一提的是，对交叉熵求最小值，也“等效”于最大化似然函数。</li>
+</ul>
+<h2 id="最小化交叉熵与最大化似然函数"><a href="#最小化交叉熵与最大化似然函数" class="headerlink" title="最小化交叉熵与最大化似然函数"></a>最小化交叉熵与最大化似然函数</h2><p>首先，在讲解这点之前，纠正一个广泛的错误表达，在大量的博客中，充斥着一句话“最小化交叉熵相当于求最大似然估计”，这句话是有一些问题的，在于最大似然估计是求参数，最小化交叉熵不仅要求参数，还要给出损失大小。</p>
+<ul>
+<li>最大似然估计是基于统计方法去估计模型参数从而重建模型的方法。最大似然估计的基本过程是对已知的分布中独立同分布地抽取出n个样本，然后利用这n个样本去估计该分布的未知参数。例如我们知道高考成绩服从正态分布，但我们不知道这个正态分布的均值和方差，于是我们可以从考生成绩样本空间中独立同分布的抽取足够多的n个样本，然后利用统计的方法估计出均值和方差，这就是最大似然估计的过程。</li>
+<li>那么似然函数又是什么?似然函数是在求最大似然估计过程中用到的一个概率，这个概率是抽样的n个样本的联合概率分布，可以写作,<script type="math/tex; mode=display">
+P=f_{model}(x1,x2,...xn |\theta)</script>而x1,x2,xn是独立同分布的，这个时候,<script type="math/tex; mode=display">
+P=f_{model}(x1,x2,...xn |\theta)=\prod\limits_{i=1}^{n}f(x_i|\theta)</script>参数θ是需要估计的，参数θ需要使P最大，我们称P为似然函数，把求使P最大的参数θ的过程叫最大似然估计，为了简化计算，我们定义下式对数似然函数<script type="math/tex; mode=display">
+L=\sum\limits_{i=1}^{n}logf_{model}(x_i|\theta)</script>由于log函数为单调函数，所以对数似然函数最大时，似然函数也最大，此时对应的最大似然估计为,<script type="math/tex; mode=display">
+\hat{\theta}=argmax\sum\limits_{i=1}^{n}logf_{model}(x_i|\theta)</script>对此式除以n，不改变最大似然估计的值，于是,<script type="math/tex; mode=display">
+\hat{\theta}=argmax\sum\limits_{i=1}^{n}logf_{model}(x_i|\theta)/n=argmaxE_{f_{data}}logf_{model}(x_i|\theta)</script>注意到式,<script type="math/tex; mode=display">
+E_{f_{data}}logf_{model}(x_i|\theta)</script>恰巧就是交叉信息熵的相反数，于是我们得知，我们可以知道最大化似然函数（也即最大化上式），就相当于是最小化交叉信息熵。</li>
+</ul>
+<h2 id="机器学习中的使用"><a href="#机器学习中的使用" class="headerlink" title="机器学习中的使用"></a>机器学习中的使用</h2><p>你或许疑问，这里的熵和机器学习是如何相关的。下面我们看一下一些具体的领域。</p>
+<h4 id="贝叶斯学习"><a href="#贝叶斯学习" class="headerlink" title="贝叶斯学习"></a>贝叶斯学习</h4><p>首先，上面描述的高斯分布的例子是很重要的，因为在机器学习应用中，高斯分布是一个很常见的建模选择。机器学习的目标就是减少熵。我们希望做一些预测，而且我们必须对自己的预测比较确定。而熵正好可以用来衡量这个置信度。在贝叶斯学习中，经常假设一个先验分布具有较宽广的概率密度函数，这反映了随机变量在观测之前的不确定性。当数据来了以后，熵会减小，并且让后验分布在最可能的参数值周围形成峰值。</p>
+<h4 id="决策树学习"><a href="#决策树学习" class="headerlink" title="决策树学习"></a>决策树学习</h4><p>在决策树的学习算法中，一般包含了特征选择、决策树的生成与决策树的剪枝过程。决策树的特征选择在于选取对训练数据有分类能力的特征，而通常特征选择的准则是信息增益或信息增益比。<br>在李航的统计学习方法中，一般熵 $H(Y)$ 与条件熵 $H(Y|X)$ 之差可以称为互信息（Mutual Information），决策树学习中的信息增益等价于训练数据中类与特征的互信息。若给定训练数据集 $D$ 和特征 $A$，经验熵 $H(D)$ 表示对数据集 $D$ 进行分类的不确定性。而经验条件熵 $H(D|A)$ 表示在特征 $A$ 给定的条件下对数据集 $D$ 进行分类的不确定性。那么它们的差，即信息增益，就表示由于特征 $A$ 而使得对数据集 $D$ 的分类的不确定性减少的程度。显然，对于数据集 $D$ 而言，信息增益依赖于特征，不同的特征往往具有不同的信息增益。信息增益大的特征具有更强的分类能力。<br>根据信息增益准则的特征选择方法是：对训练数据集（或子集）$D$，计算其每个特征的信息增益，并比较它们的大小，选择信息增益最大的特征。<br>因此在决策树学习中，熵被用来构建树。通过将数据集 $S$ 根据可能的「最佳」属性分成一些子数据集，从根节点开始构建决策树，「最佳」属性也就是能够将得到的子数据集的熵最小化的属性。这个过程被递归地重复，直到没有更多的属性来分割。此过程被称为 $ID3$ 算法，由此可见 $ID3$ 算法的核心是在决策树各个结点上应用信息增益准则选择特征，递归地构建决策树。</p>
+<h4 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h4><p>不管是在二分类问题还是多分类问题中，交叉熵是 logistic 回归和神经网络中的标准损失函数。</p>
+<blockquote>
+<p>本文原理解释及公式推导部分均由LSayhi完成，允许部分或全部转载，但请注明出处；详细数据及代码可在github查阅。GitHub：<a href="https://github.com/LSayhi/book-paper-note" target="_blank" rel="noopener">https://github.com/LSayhi/book-paper-note</a></p>
+</blockquote>
+
+  </div>
+  <footer class="article-footer">
+    
+  <div class="cc">
+    <a href="http://creativecommons.org/licenses/by-sa/4.0/deed.e" target="_blank" title="Attribution-ShareAlike">
+      <img src="/images/cc/cc.png">
+      
+          <img src="/images/cc/by.png">
+        
+          <img src="/images/cc/sa.png">
+      
+      <span>
+        This work is licensed under a Creative Commons Attribution-ShareAlike 4.0 International License.
+      </span>
+    </a>
+  </div>
+
+
+    
+
+  </footer>
+  <footer class="article-footer">
+  
+      <section class="livere" id="comments">
+    <!-- 来必力City版安装代码 -->
+<div id="lv-container" data-id="city" data-uid="MTAyMC8zODI5Ny8xNDgyNQ==">
+ <script type="text/javascript">
+   (function(d, s) {
+       var j, e = d.getElementsByTagName(s)[0];
+
+       if (typeof LivereTower === 'function') { return; }
+
+       j = d.createElement(s);
+       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+       j.async = true;
+
+       e.parentNode.insertBefore(j, e);
+   })(document, 'script');
+ </script>
+<noscript> 为正常使用来必力评论功能请激活JavaScript</noscript>
+</div>
+<!-- City版安装代码已完成 -->
+</section>
+    
+  </footer>
+</article>
+
+
+
+
+
+
+
+          <div align="center" class="main-footer">
+<!-- 根据页面mathjax变量决定是否加载MathJax数学公式js -->
+
+<span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span>
+<script>
+    var now = new Date(); 
+    function createtime() { 
+        var grt= new Date("07/20/2018 12:49:00");//此处修改你的建站时间或者网站上线时间 
+        now.setTime(now.getTime()+250); 
+        days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days); 
+        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours); 
+        if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum); 
+        mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;} 
+        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum); 
+        snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;} 
+        document.getElementById("timeDate").innerHTML = "本站已安全运行 "+dnum+" 天 "; 
+        document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒"; 
+    } 
+setInterval("createtime()",250);
+</script>
+  
+    © 2018 Yuan Enming - Powered by <a href="http://hexo.io" target="_blank">Hexo</a> - Theme <a href="https://github.com/denjones/hexo-theme-chan" target="_blank">Chan</a>
+  
+  <script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+  
+  _st('install','iCyu54VhBnr8QxsJnwf6','2.0.0');
+</script>
+</div>
+
+      
+        </div>
+      
+    </div>
+  </div>
+  <script src="//apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+
+  <link rel="stylesheet" href="/PhotoSwipe/photoswipe.css">
+  <link rel="stylesheet" href="/PhotoSwipe/default-skin/default-skin.css">
+
+  <!-- Root element of PhotoSwipe. Must have class pswp. -->
+  <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe.
+             It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+      <!-- Container that holds slides.
+                PhotoSwipe keeps only 3 of them in the DOM to save memory.
+                Don't modify these 3 pswp__item elements, data is added later on. -->
+      <div class="pswp__container">
+        <div class="pswp__item"></div>
+        <div class="pswp__item"></div>
+        <div class="pswp__item"></div>
+      </div>
+
+      <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+      <div class="pswp__ui pswp__ui--hidden">
+
+        <div class="pswp__top-bar">
+
+          <!--  Controls are self-explanatory. Order can be changed. -->
+
+          <div class="pswp__counter"></div>
+
+          <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+          <button class="pswp__button pswp__button--share" title="Share"></button>
+
+          <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+          <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+          <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+          <!-- element will get class pswp__preloader--active when preloader is running -->
+          <div class="pswp__preloader">
+            <div class="pswp__preloader__icn">
+              <div class="pswp__preloader__cut">
+                <div class="pswp__preloader__donut"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+          <div class="pswp__share-tooltip"></div>
+        </div>
+
+        <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button>
+
+        <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button>
+
+        <div class="pswp__caption">
+          <div class="pswp__caption__center"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="/PhotoSwipe/photoswipe.js"></script>
+  <script src="/PhotoSwipe/photoswipe-ui-default.js"></script>
+
+
+<script src="/perfect-scrollbar/js/min/perfect-scrollbar.min.js"></script>
+<script src="/scripts/main.js"></script>
+
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>
