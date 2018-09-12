@@ -21,7 +21,7 @@
 <meta property="og:description" content="Materials, energy and information is the fundermental things on the earth.信息论与信息熵是 AI 或机器学习中非常重要的概念，我们经常需要使用它的关键思想来描述概率分布或者量化概率分布之间的相似性。在本文中，我们从最基本的自信息和信息熵到交叉熵讨论了信息论的基础，再由最大似然估计推导出 KL 散度而加强我们对量化分布间相似性">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="http://www.yuanenming.com/2018/09/08/Information-theory-in-Machine-Learning/1.jpg">
-<meta property="og:updated_time" content="2018-09-08T14:19:06.361Z">
+<meta property="og:updated_time" content="2018-09-09T11:55:02.259Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Information Theory in Machine Learning">
 <meta name="twitter:description" content="Materials, energy and information is the fundermental things on the earth.信息论与信息熵是 AI 或机器学习中非常重要的概念，我们经常需要使用它的关键思想来描述概率分布或者量化概率分布之间的相似性。在本文中，我们从最基本的自信息和信息熵到交叉熵讨论了信息论的基础，再由最大似然估计推导出 KL 散度而加强我们对量化分布间相似性">
@@ -99,7 +99,7 @@
             
               <li class="archive-list-container">
                 <a href="javascript:;">Archive</a>
-                <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/">2018</a><span class="archive-list-count">12</span></li></ul>
+                <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/">2018</a><span class="archive-list-count">14</span></li></ul>
               </li>
             
           
@@ -197,7 +197,7 @@ E_{f_{data}}logf_{model}(x_i|\theta)</script>恰巧就是交叉信息熵的相�
 </ul>
 <h2 id="机器学习中的使用"><a href="#机器学习中的使用" class="headerlink" title="机器学习中的使用"></a>机器学习中的使用</h2><p>你或许疑问，这里的熵和机器学习是如何相关的。下面我们看一下一些具体的领域。</p>
 <h4 id="贝叶斯学习"><a href="#贝叶斯学习" class="headerlink" title="贝叶斯学习"></a>贝叶斯学习</h4><p>首先，上面描述的高斯分布的例子是很重要的，因为在机器学习应用中，高斯分布是一个很常见的建模选择。机器学习的目标就是减少熵。我们希望做一些预测，而且我们必须对自己的预测比较确定。而熵正好可以用来衡量这个置信度。在贝叶斯学习中，经常假设一个先验分布具有较宽广的概率密度函数，这反映了随机变量在观测之前的不确定性。当数据来了以后，熵会减小，并且让后验分布在最可能的参数值周围形成峰值。</p>
-<h4 id="决策树学习"><a href="#决策树学习" class="headerlink" title="决策树学习"></a>决策树学习</h4><p>在决策树的学习算法中，一般包含了特征选择、决策树的生成与决策树的剪枝过程。决策树的特征选择在于选取对训练数据有分类能力的特征，而通常特征选择的准则是信息增益或信息增益比。<br>在李航的统计学习方法中，一般熵 $H(Y)$ 与条件熵 $H(Y|X)$ 之差可以称为互信息（Mutual Information），决策树学习中的信息增益等价于训练数据中类与特征的互信息。若给定训练数据集 $D$ 和特征 $A$，经验熵 $H(D)$ 表示对数据集 $D$ 进行分类的不确定性。而经验条件熵 $H(D|A)$ 表示在特征 $A$ 给定的条件下对数据集 $D$ 进行分类的不确定性。那么它们的差，即信息增益，就表示由于特征 $A$ 而使得对数据集 $D$ 的分类的不确定性减少的程度。显然，对于数据集 $D$ 而言，信息增益依赖于特征，不同的特征往往具有不同的信息增益。信息增益大的特征具有更强的分类能力。<br>根据信息增益准则的特征选择方法是：对训练数据集（或子集）$D$，计算其每个特征的信息增益，并比较它们的大小，选择信息增益最大的特征。<br>因此在决策树学习中，熵被用来构建树。通过将数据集 $S$ 根据可能的「最佳」属性分成一些子数据集，从根节点开始构建决策树，「最佳」属性也就是能够将得到的子数据集的熵最小化的属性。这个过程被递归地重复，直到没有更多的属性来分割。此过程被称为 $ID3$ 算法，由此可见 $ID3$ 算法的核心是在决策树各个结点上应用信息增益准则选择特征，递归地构建决策树。</p>
+<h4 id="决策树学习"><a href="#决策树学习" class="headerlink" title="决策树学习"></a>决策树学习</h4><p>在决策树的学习算法中，一般包含了特征选择、决策树的生成与决策树的剪枝过程。决策树的特征选择在于选取对训练数据有分类能力的特征，而通常特征选择的准则是信息增益或信息增益比。<br>在李航的统计学习方法中，一般熵 $ H(Y) $ 与条件熵 $ H(Y|X) $ 之差可以称为互信息（Mutual Information），决策树学习中的信息增益等价于训练数据中类与特征的互信息。若给定训练数据集 $ D $ 和特征 $ A $，经验熵 $ H(D) $ 表示对数据集 $ D $ 进行分类的不确定性。而经验条件熵 $ H(D|A) $ 表示在特征 $ A $ 给定的条件下对数据集 $ D $ 进行分类的不确定性。那么它们的差，即信息增益，就表示由于特征 $ A $ 而使得对数据集 $ D $ 的分类的不确定性减少的程度。显然，对于数据集 $ D $ 而言，信息增益依赖于特征，不同的特征往往具有不同的信息增益。信息增益大的特征具有更强的分类能力。<br>根据信息增益准则的特征选择方法是：对训练数据集（或子集）$ D $，计算其每个特征的信息增益，并比较它们的大小，选择信息增益最大的特征。<br>因此在决策树学习中，熵被用来构建树。通过将数据集 $ S $ 根据可能的「最佳」属性分成一些子数据集，从根节点开始构建决策树，「最佳」属性也就是能够将得到的子数据集的熵最小化的属性。这个过程被递归地重复，直到没有更多的属性来分割。此过程被称为 $ ID3 $ 算法，由此可见 $ ID3 $ 算法的核心是在决策树各个结点上应用信息增益准则选择特征，递归地构建决策树。</p>
 <h4 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h4><p>不管是在二分类问题还是多分类问题中，交叉熵是 logistic 回归和神经网络中的标准损失函数。</p>
 <blockquote>
 <p>本文原理解释及公式推导部分均由LSayhi完成，允许部分或全部转载，但请注明出处；详细数据及代码可在github查阅。GitHub：<a href="https://github.com/LSayhi/book-paper-note" target="_blank" rel="noopener">https://github.com/LSayhi/book-paper-note</a></p>

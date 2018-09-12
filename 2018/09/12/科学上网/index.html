@@ -8,30 +8,22 @@
 
 <title>
   
-    Expectation Maximize
+    科学上网
   
 </title>
 
-<meta name="description" content="Today I am going to talk about the Expectation Maximize Algorithm (EM-Algorithm), which is an optimization algorithm based on an interesting idea. However, it might be a little bit difficult for you t">
-<meta name="keywords" content="Machine Learning,Algorithm">
+<meta name="description" content="emmmmm~一直想自己搞一下科学上网，然后发现了个最无脑的帖子（你只需要follow，半小时应该就OK了），是基于VPS+SS的梯子。现在先mark下来(https://www.yigeni.com/build-a-wall-ss-server/)">
+<meta name="keywords" content="Machine Learning, Bioinformatics">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Expectation Maximize">
-<meta property="og:url" content="http://www.yuanenming.com/2018/07/24/Expectation-Maximize/index.html">
+<meta property="og:title" content="科学上网">
+<meta property="og:url" content="http://www.yuanenming.com/2018/09/12/科学上网/index.html">
 <meta property="og:site_name" content="Yuan Enming">
-<meta property="og:description" content="Today I am going to talk about the Expectation Maximize Algorithm (EM-Algorithm), which is an optimization algorithm based on an interesting idea. However, it might be a little bit difficult for you t">
+<meta property="og:description" content="emmmmm~一直想自己搞一下科学上网，然后发现了个最无脑的帖子（你只需要follow，半小时应该就OK了），是基于VPS+SS的梯子。现在先mark下来(https://www.yigeni.com/build-a-wall-ss-server/)">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="http://www.yuanenming.com/2018/07/24/Expectation-Maximize/1.png">
-<meta property="og:image" content="http://www.yuanenming.com/2018/07/24/Expectation-Maximize/2.png">
-<meta property="og:image" content="http://www.yuanenming.com/2018/07/24/Expectation-Maximize/3.png">
-<meta property="og:image" content="http://www.yuanenming.com/2018/07/24/Expectation-Maximize/4.png">
-<meta property="og:image" content="http://www.yuanenming.com/2018/07/24/Expectation-Maximize/5.png">
-<meta property="og:image" content="http://www.yuanenming.com/2018/07/24/Expectation-Maximize/6.png">
-<meta property="og:image" content="http://www.yuanenming.com/2018/07/24/Expectation-Maximize/7.png">
-<meta property="og:updated_time" content="2018-07-24T11:39:52.010Z">
+<meta property="og:updated_time" content="2018-09-12T15:16:31.676Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Expectation Maximize">
-<meta name="twitter:description" content="Today I am going to talk about the Expectation Maximize Algorithm (EM-Algorithm), which is an optimization algorithm based on an interesting idea. However, it might be a little bit difficult for you t">
-<meta name="twitter:image" content="http://www.yuanenming.com/2018/07/24/Expectation-Maximize/1.png">
+<meta name="twitter:title" content="科学上网">
+<meta name="twitter:description" content="emmmmm~一直想自己搞一下科学上网，然后发现了个最无脑的帖子（你只需要follow，半小时应该就OK了），是基于VPS+SS的梯子。现在先mark下来(https://www.yigeni.com/build-a-wall-ss-server/)">
 
 
   <link rel="alternative" href="/atom.xml" title="Yuan Enming" type="application/atom+xml">
@@ -153,10 +145,10 @@
       
         <div style="max-width: 1000px">
       
-          <article id="post-Expectation-Maximize" class="article article-type-post">
+          <article id="post-科学上网" class="article article-type-post">
   
     <h1 class="article-header">
-      Expectation Maximize
+      科学上网
       
     </h1>
   
@@ -165,40 +157,16 @@
 
   <div class="article-info">
     <span class="article-date">
-  2018-07-24
+  2018-09-12
 </span>
 
     
 
     
-	<span class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Algorithm/">Algorithm</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Machine-Learning/">Machine Learning</a></li></ul>
-	</span>
-
 
   </div>
   <div class="article-entry">
-    <p>Today I am going to talk about the Expectation Maximize Algorithm (EM-Algorithm), which is an optimization algorithm based on an interesting idea. However, it might be a little bit difficult for you to fully understand it if it is your first time hear about it. Don’t worry about that. Actually I don’t figure out all thedetails in the EM-Algorithm though I have go through the whole process manytimes. OK, Let’s start!</p>
-<a id="more"></a>
-<h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><p>Generally speaking, Expectation Maximize can be considered as a kind of non-convex Optimization technique, which tends to find the optima for a non-convex objective function. Specifically, EM is applied and performs well when dealing with latent variables, which means unobservable. The EM is applied and extended in the parameter learning of Gaussian Mixture Models (GMM), Hidden Markov Models (HMM), and mixed regression. I will give you the principles of EM, and then explain its implementations in GMM and HMM in the sequel.</p>
-<h1 id="Principles"><a href="#Principles" class="headerlink" title="Principles"></a>Principles</h1><p>For a general problem, suppose we can get the log likelihood function <code>l(θ)</code>:</p>
-<p><img src="/2018/07/24/Expectation-Maximize/1.png" alt="img"></p>
-<p>Which can be considered as a function of theta (cause x are the observed data samples,where theta is unknown).</p>
-<p>Remember, there are latent variables in the model. So for the above log likelihoodfunction, we can introduce latent variable z and sum it up.</p>
-<p><img src="/2018/07/24/Expectation-Maximize/2.png" alt="img"></p>
-<p>It isdifficult to optimize the above objective function using traditional gradient-based methods since there are sum terms in the log function which is hard to compute.</p>
-<p>Then the following figure shows the basic intuition for the optimization process. That is, for a given theta, try to find a approximate function r(x|theta), which hasthe same value at the point of give theta while has a smaller value anywhere else. The approximate function r(x|theta) is easy to optimize so we can repeat this process until convergence. Finally, we will get a local optima.</p>
-<p><img src="/2018/07/24/Expectation-Maximize/3.png" alt="img"></p>
-<p>OK, till to now, you may have the intuition of EM-Algorithm and raise a question: How do we determine the approximate function r(x|theta). Let’s get back to the loglikelihood function:</p>
-<p><img src="/2018/07/24/Expectation-Maximize/4.png" alt="img"></p>
-<p>For the previous log likelihood function: to begin with, we can introduce the distribution Q(z) for the latent variable z. Then use Jensen inequation get the smaller value function. Actually ,we need a function which can obtain the equal sign, which means that we need:</p>
-<p><img src="/2018/07/24/Expectation-Maximize/5.png" alt="img"></p>
-<p>Where c is a constant. Furthermore, Because sum Q(z) is equal to one, we can get:</p>
-<p><img src="/2018/07/24/Expectation-Maximize/6.png" alt="img"></p>
-<p>Till to now, I have show the fundamental ideas of EM-Algorithm, then I will give you the pseudocode of Expectation Maximize:</p>
-<p><img src="/2018/07/24/Expectation-Maximize/7.png" alt="img"></p>
-<hr>
-<p>Why is it called the Expectation Maximize? Because it repeats the circle that calculation of the expectation and maximization.</p>
+    <p>emmmmm~<br>一直想自己搞一下科学上网，然后发现了个最无脑的帖子（你只需要follow，半小时应该就OK了），是基于VPS+SS的梯子。现在先mark下来<br>(<a href="https://www.yigeni.com/build-a-wall-ss-server/" target="_blank" rel="noopener">https://www.yigeni.com/build-a-wall-ss-server/</a>)</p>
 
   </div>
   <footer class="article-footer">
