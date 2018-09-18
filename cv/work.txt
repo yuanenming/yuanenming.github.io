@@ -1,0 +1,35 @@
+Yuan Enming
+=========
+
+Shanghai Jiao Tong University
+Undergraduate student in bioinformatics
+Keywords: Bioinformatics, Machine Learning, Deep Learning
+
+Contact
+-------
+
+* yuanenming at sjtu dot edu dot cn
+* enming.yuan at gmail dot com
+
+Study Experience
+--------
+
+* Shanghai Jiao Tong University, Shanghai, China
+    Sep.2015 - Jul.2019 @ B.S. in Bioinformatics.
+* Tsinghua University, Beijing, China
+    Sep.2019 - future @ Ph.D. student in Computer Science.
+* Oxford University, Oxford, UK
+    Aug.2018 @ A short-term exchange.
+
+Awards
+-----------
+
+* Scholarship of Shanghai City in 2016
+* Zeng Xianzi Scholarship in 2016, 2017
+* National Encouragement Scholarship in 2017
+* Merit Student Award of Shanghai Jiao Tong University in 2016
+* Honorable Mention in MCM in 2018
+* Outstanding project in College Student Innovation Program
+* The 3rd Prize of National Physics Contest in Shanghai for Undergraduate Students in 2016
+
+
