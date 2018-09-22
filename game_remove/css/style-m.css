@@ -1,0 +1,147 @@
+@media screen and (max-width: 520px) {
+    html,
+    body {
+        font-size: 12px;
+    }
+    .container {
+        width: 292px;
+    }
+    .game-container {
+        margin-top: 20px;
+        width: 292px;
+        height: 292px;
+    }
+    .grid-cell,
+    .touchpad-cell {
+        width: 40px;
+        height: 40px;
+    }
+    .grid-disable::after {
+        font-size: 36px;
+        margin-left: 10px;
+        line-height: 40px;
+    }
+    .tile .tile-inner,
+    .tile {
+        width: 40px;
+        height: 40px;
+    }
+    .game-info {
+        width: 292px;
+        height: 82px;
+        margin-top: 20px;
+    }
+    .next-title {
+        height: 16px;
+        line-height: 16px;
+        margin-bottom: 2px;
+    }
+    .game-next {
+        width: 96px;
+        height: 82px;
+    }
+    .next-cell {
+        width: 30px;
+        height: 30px;
+    }
+    .game-state {
+        height: 30px;
+    }
+    .game-state-inner {
+        width: 292px;
+        height: 30px;
+        line-height: 30px;
+    }
+    .game-score {
+        width: 292px;
+        height: 82px;
+    }
+    .current-score {
+        width: 80px;
+    }
+    .score-value {
+        font-size: 32px;
+        line-height: 32px;
+    }
+    .combo-value {
+        font-size: 16px;
+    }
+    .label-title {
+        font-size: 12px;
+    }
+    .combo-best {
+        left: 125px;
+    }
+    .best-score {
+        top: 30px;
+        width: 80px;
+        font-size: 14px;
+    }
+    .btn {
+        height: 30px;
+        line-height: 30px;
+        font-size: 14px;
+    }
+    .restart-button {
+        width: 110px;
+    }
+    .help-button {
+        left: 125px;
+        width: 60px;
+    }
+    .game-about {
+        margin-top: 10px;
+    }
+    .game-level {
+        margin-left: 10px;
+        font-size: 14px;
+    }
+    .game-progress {
+        top: 2px;
+        height: 26px;
+        width: 292px;
+    }
+    .game-progress-inner {
+        height: 26px;
+    }
+    .game-message {
+        width: 292px;
+        height: 292px;
+    }
+    .game-message-title {
+        margin-top: 50px;
+        font-size: 36px;
+    }
+    .game-message-text {
+        margin-top: 30px;
+        font-size: 14px;
+        padding: 0 20px;
+    }
+    .game-message-per {
+        margin: 0 5px;
+        font-size: 18px;
+    }
+    .game-message-text p {
+        margin: 0 0 8px 0;
+    }
+    .game-message-btn {
+        margin: 30px 40px 0 40px;
+        height: 36px;
+        line-height: 36px;
+        font-size: 14px;
+    }
+    .game-tip {
+        left: 50px;
+        width: 192px;
+        top: 110px;
+        font-size: 48px;
+    }
+    .game-help {
+        width: 292px;
+        height: 292px;
+    }
+    .game-help img {
+        width: 292px;
+        height: 292px;
+    }
+}

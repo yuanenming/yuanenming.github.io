@@ -1,0 +1,382 @@
+html,
+body {
+    margin: 0;
+    padding: 0;
+    background: #fdf9f0;
+    font-family: "Arial", "Microsoft YaHei";
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.container {
+    width: 502px;
+    margin: 0 auto;
+}
+
+.game-container {
+    margin-top: 30px;
+    position: relative;
+    cursor: default;
+    -webkit-touch-callout: none;
+    -ms-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -ms-touch-action: none;
+    touch-action: none;
+    width: 502px;
+    height: 502px;
+    border-radius: 4px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.grid-container {
+    position: absolute;
+    z-index: 1;
+}
+
+.touchpad-container {
+    position: absolute;
+    z-index: 2;
+}
+
+.grid-row,
+.touchpad-row {
+    margin-bottom: 2px;
+}
+
+.grid-row:last-child,
+.touchpad-row:last-child {
+    margin-bottom: 0;
+}
+
+.grid-row:after,
+.touchpad-row:after,
+.game-next:after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+.grid-cell,
+.touchpad-cell {
+    width: 70px;
+    height: 70px;
+    margin-right: 2px;
+    border-radius: 4px;
+    float: left;
+}
+
+.grid-cell,
+.next-cell {
+    background: #ede3d0;
+}
+
+.grid-disable {
+    background: #8f8163;
+}
+
+.grid-disable::after {
+    content: "×";
+    font-size: 48px;
+    margin-left: 20px;
+    line-height: 75px;
+    color: #E2E2E2;
+    font-weight: normal;
+}
+
+.grid-cell:last-child,
+.touchpad-cell:last-child {
+    margin-right: 0;
+}
+
+.tile-container {
+    position: absolute;
+    z-index: 2;
+}
+
+.tile .tile-inner,
+.tile {
+    width: 70px;
+    height: 70px;
+    border-radius: 4px;
+}
+
+.tile {
+    position: absolute;
+}
+
+.tile-red .tile-inner,
+.next-red {
+    background: rgb(254, 69, 67);
+}
+
+.tile-blue .tile-inner,
+.next-blue {
+    background: rgb(51, 181, 230);
+}
+
+.tile-purple .tile-inner,
+.next-purple {
+    background: rgb(170, 102, 205);
+}
+
+.tile-yellow .tile-inner,
+.next-yellow {
+    background: rgb(255, 187, 52);
+}
+
+.tile-green .tile-inner,
+.next-green {
+    background: rgb(151, 204, 0);
+}
+
+.game-info {
+    position: relative;
+    width: 502px;
+    height: 154px;
+    margin-top: 30px;
+}
+
+.next-title {
+    height: 25px;
+    line-height: 25px;
+    text-align: center;
+    background: #a76262;
+    margin-right: 2px;
+    border-radius: 4px;
+    color: #FFF;
+    margin-bottom: 5px;
+}
+
+.game-next {
+    position: absolute;
+    right: -2px;
+    bottom: -2px;
+    width: 186px;
+    height: 154px;
+}
+
+.next-cell {
+    float: left;
+    width: 60px;
+    height: 60px;
+    margin: 0 2px 2px 0;
+    border-radius: 4px;
+}
+
+.game-state {
+    height: 50px;
+    background: #d0c09b;
+    box-shadow: rgba(0, 0, 0, 0.7) 0 0 5px;
+}
+
+.game-state-inner {
+    width: 502px;
+    margin: 0 auto;
+    height: 50px;
+    line-height: 50px;
+    position: relative;
+}
+
+.game-score {
+    position: relative;
+    width: 502px;
+    height: 154px;
+}
+
+.current-score {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 150px;
+}
+
+.score-value {
+    font-size: 56px;
+    line-height: 70px;
+}
+
+.combo-value {
+    font-size: 28px;
+}
+
+.label-title {
+    font-size: 14px;
+    color: #a76262;
+}
+
+.combo-best {
+    position: absolute;
+    left: 190px;
+    top: 0;
+}
+
+.best-score {
+    position: absolute;
+    left: 0;
+    top: 56px;
+    width: 150px;
+    font-size: 16px;
+}
+
+.btn {
+    height: 60px;
+    line-height: 60px;
+    text-align: center;
+    color: #FFF;
+    background: #a76262;
+    border-radius: 5px;
+    font-size: 22px;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.restart-button {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 170px;
+}
+
+.help-button {
+    position: absolute;
+    bottom: 0;
+    left: 190px;
+    width: 100px;
+}
+
+.btn:hover {
+    background: #a04646;
+}
+
+.btn:active {
+    box-shadow: rgba(0, 0, 0, 0.3) 3px 3px 5px inset;
+}
+
+.game-about {
+    color: #a76262;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.game-level {
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: #a76262;
+    text-shadow: #FFF 0 0 1px;
+    margin-left: 20px;
+    font-size: 18px;
+    z-index: 1;
+}
+
+.game-progress {
+    position: absolute;
+    left: 0;
+    top: 5px;
+    height: 40px;
+    width: 502px;
+    background: #fdf9f0;
+    box-shadow: rgba(0, 0, 0, 0.2) 1px 1px 3px inset;
+}
+
+.game-progress-inner {
+    background: #ede3d0;
+    box-shadow: rgba(0, 0, 0, 0.2) 1px 1px 3px inset;
+    height: 40px;
+    transition: 0.5s;
+    width: 0%;
+}
+
+.game-message {
+    display: none;
+    position: absolute;
+    z-index: 9;
+    width: 502px;
+    height: 502px;
+    left: 0;
+    top: 0;
+    background: rgba(0, 0, 0, 0.6);
+    border-radius: 4px;
+    color: #EEE;
+    text-shadow: #000 0 0 4px;
+    -webkit-animation: fadeIn 500ms ease;
+    -moz-animation: fadeIn 500ms ease;
+    animation: fadeIn 500ms ease;
+}
+
+.game-message-title {
+    text-align: center;
+    margin-top: 100px;
+    font-size: 60px;
+    text-shadow: #333 0 0 10px;
+}
+
+.game-message-text {
+    margin-top: 50px;
+    font-size: 24px;
+    text-align: center;
+    padding: 0 20px;
+}
+
+.game-message-per {
+    margin: 0 10px;
+    font-size: 32px;
+    text-shadow: #666 0 0 10px;
+}
+
+.game-message-text p {
+    margin: 0 0 20px 0;
+}
+
+.game-message-btn {
+    margin: 50px 80px 0 80px;
+    text-align: center;
+    height: 50px;
+    line-height: 50px;
+    background: #a76262;
+    font-size: 18px;
+    text-shadow: none;
+    border-radius: 5px;
+    box-shadow: #666 0 0 10px;
+}
+
+.game-tip {
+    display: none;
+    position: absolute;
+    z-index: 8;
+    width: 302px;
+    text-align: center;
+    left: 100px;
+    top: 200px;
+    font-size: 96px;
+    color: #fdf9f0;
+    text-shadow: #666 0 0 5px;
+}
+
+.game-tip-remove {
+    -webkit-animation: remove 800ms ease;
+    -moz-animation: remove 800ms ease;
+    animation: remove 800ms ease;
+}
+
+.game-help {
+    display: none;
+    position: absolute;
+    z-index: 10;
+    width: 502px;
+    height: 502px;
+    left: 0;
+    top: 0;
+}
+
+.game-help img {
+    width: 502px;
+    height: 502px;
+}
