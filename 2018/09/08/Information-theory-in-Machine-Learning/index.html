@@ -92,14 +92,14 @@
             
               <li class="tag-list-container">
                 <a href="javascript:;">Tag</a>
-                <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/testing/">-testing</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Algorithm/">Algorithm</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Blog/">Blog</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Book/">Book</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Deep-Learning/">Deep Learning</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Machine-Learning/">Machine Learning</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tour/">Tour</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/github/">github</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/toturials/">toturials</a><span class="tag-list-count">1</span></li></ul>
+                <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/testing/">-testing</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Algorithm/">Algorithm</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Blog/">Blog</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Book/">Book</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Deep-Learning/">Deep Learning</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Machine-Learning/">Machine Learning</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TensorFlow/">TensorFlow</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tour/">Tour</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/github/">github</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/toturials/">toturials</a><span class="tag-list-count">1</span></li></ul>
               </li>
             
           
             
               <li class="archive-list-container">
                 <a href="javascript:;">Archive</a>
-                <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/">2018</a><span class="archive-list-count">17</span></li></ul>
+                <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/">2018</a><span class="archive-list-count">20</span></li></ul>
               </li>
             
           
@@ -184,6 +184,11 @@
 
   </div>
   <div class="article-entry">
+  
+<div id="toc">
+  <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#信息论与香农"><span class="toc-text">信息论与香农</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#自信息"><span class="toc-text">自信息</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#信息熵"><span class="toc-text">信息熵</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#交叉熵与相对熵"><span class="toc-text">交叉熵与相对熵</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#最小化交叉熵与最大化似然函数"><span class="toc-text">最小化交叉熵与最大化似然函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#机器学习中的使用"><span class="toc-text">机器学习中的使用</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#贝叶斯学习"><span class="toc-text">贝叶斯学习</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#决策树学习"><span class="toc-text">决策树学习</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#分类"><span class="toc-text">分类</span></a></li></ol></li></ol></li></ol>
+</div>
+
     <p>Materials, energy and information is the fundermental things on the earth.<br>信息论与信息熵是 AI 或机器学习中非常重要的概念，我们经常需要使用它的关键思想来描述概率分布或者量化概率分布之间的相似性。在本文中，我们从最基本的自信息和信息熵到交叉熵讨论了信息论的基础，再由最大似然估计推导出 KL 散度而加强我们对量化分布间相似性的理解。最后我们简要讨论了信息熵在机器学习中的应用，包括通过互信息选择决策树的特征、通过交叉熵衡量分类问题的损失和贝叶斯学习等。</p>
 <a id="more"></a>
 <h2 id="信息论与香农"><a href="#信息论与香农" class="headerlink" title="信息论与香农"></a>信息论与香农</h2><p>信息论是研究信息及其传输的一般规律的学科，运用数学和其他相关方法研究信息的性质、计量以及获得、传输、存储、处理和交换等。香农被称为是“信息论之父”，通常将香农于1948年10月发表于《贝尔系统技术学报》上的论文《A Mathematical Theory of Communication》作为现代信息论研究的开端,在该文中，香农给出了信息熵的定义,从此信息量的度量有了更精确的数学描述，而不再是以“多”或“少”来衡量，信息论中的很多概念都有跨学科的应用，不只在通信领域，在编码学、密码学、数据压缩、检测与估计理论中就广泛地运用了信息论的相关概念，机器学习和深度学习也涉及到许多信息论的知识，下图是香农半神。<br><img src="/2018/09/08/Information-theory-in-Machine-Learning/1.jpg" alt=""></p>

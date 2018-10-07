@@ -13,7 +13,7 @@
 </title>
 
 <meta name="description" content="Today I am going to talk about the Expectation Maximize Algorithm (EM-Algorithm), which is an optimization algorithm based on an interesting idea. However, it might be a little bit difficult for you t">
-<meta name="keywords" content="Machine Learning,Algorithm">
+<meta name="keywords" content="Algorithm,Machine Learning">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Expectation Maximize">
 <meta property="og:url" content="http://www.yuanenming.com/2018/07/24/Expectation-Maximize/index.html">
@@ -98,14 +98,14 @@
             
               <li class="tag-list-container">
                 <a href="javascript:;">Tag</a>
-                <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/testing/">-testing</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Algorithm/">Algorithm</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Blog/">Blog</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Book/">Book</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Deep-Learning/">Deep Learning</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Machine-Learning/">Machine Learning</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tour/">Tour</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/github/">github</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/toturials/">toturials</a><span class="tag-list-count">1</span></li></ul>
+                <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/testing/">-testing</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Algorithm/">Algorithm</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Blog/">Blog</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Book/">Book</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Deep-Learning/">Deep Learning</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Machine-Learning/">Machine Learning</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TensorFlow/">TensorFlow</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tour/">Tour</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/github/">github</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/toturials/">toturials</a><span class="tag-list-count">1</span></li></ul>
               </li>
             
           
             
               <li class="archive-list-container">
                 <a href="javascript:;">Archive</a>
-                <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/">2018</a><span class="archive-list-count">17</span></li></ul>
+                <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/">2018</a><span class="archive-list-count">20</span></li></ul>
               </li>
             
           
@@ -190,6 +190,11 @@
 
   </div>
   <div class="article-entry">
+  
+<div id="toc">
+  <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Introduction"><span class="toc-text">Introduction</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Principles"><span class="toc-text">Principles</span></a></li></ol>
+</div>
+
     <p>Today I am going to talk about the Expectation Maximize Algorithm (EM-Algorithm), which is an optimization algorithm based on an interesting idea. However, it might be a little bit difficult for you to fully understand it if it is your first time hear about it. Don’t worry about that. Actually I don’t figure out all thedetails in the EM-Algorithm though I have go through the whole process manytimes. OK, Let’s start!</p>
 <a id="more"></a>
 <h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><p>Generally speaking, Expectation Maximize can be considered as a kind of non-convex Optimization technique, which tends to find the optima for a non-convex objective function. Specifically, EM is applied and performs well when dealing with latent variables, which means unobservable. The EM is applied and extended in the parameter learning of Gaussian Mixture Models (GMM), Hidden Markov Models (HMM), and mixed regression. I will give you the principles of EM, and then explain its implementations in GMM and HMM in the sequel.</p>

@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+<title>
+  
+    Restricted Boltzmann Machine
+  
+</title>
+
+<meta name="description" content="There are some notes about the famous machine learning model: Restricted Boltzmann Machine(RBM), Which was one of the most basic neural networks.">
+<meta name="keywords" content="Algorithm">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Restricted Boltzmann Machine">
+<meta property="og:url" content="http://www.yuanenming.com/2018/10/05/Restricted-Boltzmann-Machine/index.html">
+<meta property="og:site_name" content="Yuan Enming">
+<meta property="og:description" content="There are some notes about the famous machine learning model: Restricted Boltzmann Machine(RBM), Which was one of the most basic neural networks.">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="http://www.yuanenming.com/2018/10/05/Restricted-Boltzmann-Machine/1.png">
+<meta property="og:image" content="http://www.yuanenming.com/2018/10/05/Restricted-Boltzmann-Machine/2.png">
+<meta property="og:updated_time" content="2018-10-05T06:34:55.510Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Restricted Boltzmann Machine">
+<meta name="twitter:description" content="There are some notes about the famous machine learning model: Restricted Boltzmann Machine(RBM), Which was one of the most basic neural networks.">
+<meta name="twitter:image" content="http://www.yuanenming.com/2018/10/05/Restricted-Boltzmann-Machine/1.png">
+
+
+  <link rel="alternative" href="/atom.xml" title="Yuan Enming" type="application/atom+xml">
+
+
+
+  <link rel="icon" href="/images/ming.ico">
+
+
+<link rel="stylesheet" href="/perfect-scrollbar/css/perfect-scrollbar.min.css">
+<link rel="stylesheet" href="/styles/main.css">
+
+
+
+
+
+</head>
+<body
+  
+    class="monochrome"
+  
+  >
+  <div class="mobile-header">
+  <button class="sidebar-toggle" type="button">
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+  </button>
+  <a class="title" href="/">Yuan Enming</a>
+</div>
+
+  <div class="main-container">
+    <div class="sidebar">
+  <div class="header">
+    <h1 class="title"><a href="/">Yuan Enming</a></h1>
+    
+      <p class="subtitle">
+        Shanghai Jiao Tong University
+      </p>
+    
+    <div class="info">
+      <div class="content">
+        
+          <div class="description">If you have great talents, industry will improve them; if you have but moderate abilities, industry will supply their deficiency.</div>
+        
+        
+          <div class="author">—Reynolds</div>
+        
+      </div>
+      
+        <div class="avatar">
+          
+            <a href="/about"><img src="/portrait.JPG"></a>
+          
+        </div>
+      
+    </div>
+  </div>
+  <div class="body">
+    
+      
+        <ul class="nav">
+          
+            
+              <li class="tag-list-container">
+                <a href="javascript:;">Tag</a>
+                <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/testing/">-testing</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Algorithm/">Algorithm</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Blog/">Blog</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Book/">Book</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Deep-Learning/">Deep Learning</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Machine-Learning/">Machine Learning</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TensorFlow/">TensorFlow</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tour/">Tour</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/github/">github</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/toturials/">toturials</a><span class="tag-list-count">1</span></li></ul>
+              </li>
+            
+          
+            
+              <li class="archive-list-container">
+                <a href="javascript:;">Archive</a>
+                <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/">2018</a><span class="archive-list-count">20</span></li></ul>
+              </li>
+            
+          
+        </ul>
+      
+        <ul class="nav">
+          
+            
+              <li>
+                <a href="/cv" title="CV">CV</a>
+              </li>
+            
+          
+            
+              <li>
+                <a href="https://github.com/yuanenming" title="Github" target="_blank" rel="noopener">Github</a>
+              </li>
+            
+          
+            
+              <li>
+                <a href="https://weibo.com/u/5022114373" title="weibo" target="_blank" rel="noopener">weibo</a>
+              </li>
+            
+          
+            
+              <li>
+                <a href="https://www.zhihu.com/people/yuan-en-ming/activities" title="zhihu" target="_blank" rel="noopener">zhihu</a>
+              </li>
+            
+          
+            
+              <li>
+                <a href="/yuanenming@sjtu.edu.cn" title="e-mail">e-mail</a>
+              </li>
+            
+          
+            
+              <li>
+                <a href="/mikutap" title="DIY music">DIY music</a>
+              </li>
+            
+          
+            
+              <li>
+                <a href="/game_remove" title="Game">Game</a>
+              </li>
+            
+          
+        </ul>
+      
+    
+  </div>
+</div>
+
+    <div class="main-content">
+      
+        <div style="max-width: 1000px">
+      
+          <article id="post-Restricted-Boltzmann-Machine" class="article article-type-post">
+  
+    <h1 class="article-header">
+      Restricted Boltzmann Machine
+      
+    </h1>
+  
+
+  
+
+  <div class="article-info">
+    <span class="article-date">
+  2018-10-05
+</span>
+
+    
+
+    
+	<span class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Algorithm/">Algorithm</a></li></ul>
+	</span>
+
+
+  </div>
+  <div class="article-entry">
+  
+<div id="toc">
+  <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Definition"><span class="toc-text">Definition</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Structure"><span class="toc-text">Structure</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Reconstructions"><span class="toc-text">Reconstructions</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#From-RBM-to-DBN"><span class="toc-text">From RBM to DBN</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Code"><span class="toc-text">Code</span></a></li></ol>
+</div>
+
+    <p>There are some notes about the famous machine learning model: Restricted Boltzmann Machine(RBM), Which was one of the most basic neural networks.</p>
+<a id="more"></a>
+<h2 id="Definition"><a href="#Definition" class="headerlink" title="Definition"></a>Definition</h2><p>RBMs are shallow, two-layer neural nets that constitute the building blocks of deep-belief networks. It is applied in dimensionality reduction, classification, regression, collaborative filtering, feature learning and topic modeling.<br>(As a generative model, RBMs are seldomly used compared with GAN or variational autoencoders.)</p>
+<h2 id="Structure"><a href="#Structure" class="headerlink" title="Structure"></a>Structure</h2><p><img src="/2018/10/05/Restricted-Boltzmann-Machine/1.png" alt=""><br>It has a simplest two layer structure. But not like the forward nets, It has a backward process, which was called as reconstruction.</p>
+<h2 id="Reconstructions"><a href="#Reconstructions" class="headerlink" title="Reconstructions"></a>Reconstructions</h2><p><img src="/2018/10/05/Restricted-Boltzmann-Machine/2.png" alt=""><br>The reconstruction process can be illustrated by the above diagram.<br>To measure the distance between its estimated probability distribution and the ground-truth distribution of the input, RBMs use Kullback Leibler Divergence. A thorough explanation of the math can be found on Wikipedia.</p>
+<h2 id="From-RBM-to-DBN"><a href="#From-RBM-to-DBN" class="headerlink" title="From RBM to DBN"></a>From RBM to DBN</h2><h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"><span class="keyword">import</span> numpy</span><br><span class="line"><span class="keyword">import</span> matplotlib.pylab <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> random</span><br><span class="line"><span class="keyword">from</span> scipy.linalg <span class="keyword">import</span> norm</span><br><span class="line"><span class="keyword">import</span> PIL.Image</span><br><span class="line"><span class="keyword">from</span> utils <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">RBM</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, input=None, n_visible=<span class="number">2</span>, n_hidden=<span class="number">3</span>, \</span></span></span><br><span class="line"><span class="function"><span class="params">        W=None, hbias=None, vbias=None, rng=None)</span>:</span></span><br><span class="line"></span><br><span class="line">        self.n_visible = n_visible  <span class="comment"># num of units in visible (input) layer</span></span><br><span class="line">        self.n_hidden = n_hidden    <span class="comment"># num of units in hidden layer</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> rng <span class="keyword">is</span> <span class="keyword">None</span>:</span><br><span class="line">            rng = numpy.random.RandomState(<span class="number">1234</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> W <span class="keyword">is</span> <span class="keyword">None</span>:</span><br><span class="line">            a = <span class="number">1.</span> / n_visible</span><br><span class="line">            initial_W = numpy.array(rng.uniform(  <span class="comment"># initialize W uniformly(随机生成实数在-a-a之间)</span></span><br><span class="line">                low=-a,</span><br><span class="line">                high=a,</span><br><span class="line">                size=(n_visible, n_hidden)))</span><br><span class="line"></span><br><span class="line">            W = initial_W</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> hbias <span class="keyword">is</span> <span class="keyword">None</span>:</span><br><span class="line">            hbias = numpy.zeros(n_hidden)  <span class="comment"># initialize h bias 0</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> vbias <span class="keyword">is</span> <span class="keyword">None</span>:</span><br><span class="line">            vbias = numpy.zeros(n_visible)  <span class="comment"># initialize v bias 0</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        self.rng = rng</span><br><span class="line">        self.input = input</span><br><span class="line">        self.W = W</span><br><span class="line">        self.hbias = hbias</span><br><span class="line">        self.vbias = vbias</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">contrastive_divergence</span><span class="params">(self, lr=<span class="number">0.1</span>, k=<span class="number">1</span>, input=None)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> input <span class="keyword">is</span> <span class="keyword">not</span> <span class="keyword">None</span>:</span><br><span class="line">            self.input = input</span><br><span class="line"></span><br><span class="line">        <span class="string">''' CD-ks算法 '''</span></span><br><span class="line">        ph_mean, ph_sample = self.sample_h_given_v(self.input)</span><br><span class="line"></span><br><span class="line">        chain_start = ph_sample</span><br><span class="line"></span><br><span class="line">        <span class="comment">#实现一步吉布斯采样通过给隐层采样</span></span><br><span class="line">        <span class="keyword">for</span> step <span class="keyword">in</span> xrange(k):</span><br><span class="line">            <span class="keyword">if</span> step == <span class="number">0</span>:</span><br><span class="line">                nv_means, nv_samples,\</span><br><span class="line">                nh_means, nh_samples = self.gibbs_hvh(chain_start)</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                nv_means, nv_samples,\</span><br><span class="line">                nh_means, nh_samples = self.gibbs_hvh(nh_samples)</span><br><span class="line"></span><br><span class="line">        <span class="comment"># chain_end = nv_samples</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        self.W += lr * (numpy.dot(self.input.T, ph_mean)</span><br><span class="line">                        - numpy.dot(nv_samples.T, nh_means))</span><br><span class="line">        self.vbias += lr * numpy.mean(self.input - nv_samples, axis=<span class="number">0</span>)</span><br><span class="line">        self.hbias += lr * numpy.mean(ph_mean - nh_means, axis=<span class="number">0</span>)</span><br><span class="line"></span><br><span class="line">        <span class="comment"># cost = self.get_reconstruction_cross_entropy()</span></span><br><span class="line">        <span class="comment"># return cost</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 通过给出显层单元推断出隐层单元的    </span></span><br><span class="line">    <span class="comment">#计算隐层单元的激活率通过给出显层，得到一个采样通过给他们的</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">sample_h_given_v</span><span class="params">(self, v0_sample)</span>:</span></span><br><span class="line">        h1_mean = self.propup(v0_sample)</span><br><span class="line">        h1_sample = self.rng.binomial(size=h1_mean.shape,   <span class="comment"># discrete: binomial</span></span><br><span class="line">                                       n=<span class="number">1</span>,</span><br><span class="line">                                       p=h1_mean)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> [h1_mean, h1_sample]</span><br><span class="line"></span><br><span class="line">    <span class="comment">#一一步吉布斯采样通过从隐层率开始</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">sample_v_given_h</span><span class="params">(self, h0_sample)</span>:</span></span><br><span class="line">        v1_mean = self.propdown(h0_sample)</span><br><span class="line">        v1_sample = self.rng.binomial(size=v1_mean.shape,   <span class="comment"># discrete: binomial</span></span><br><span class="line">                                            n=<span class="number">1</span>,</span><br><span class="line">                                            p=v1_mean)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> [v1_mean, v1_sample]</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">propup</span><span class="params">(self, v)</span>:</span></span><br><span class="line">        pre_sigmoid_activation = numpy.dot(v, self.W) + self.hbias</span><br><span class="line">        <span class="keyword">return</span> sigmoid(pre_sigmoid_activation)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">propdown</span><span class="params">(self, h)</span>:</span></span><br><span class="line">        pre_sigmoid_activation = numpy.dot(h, self.W.T) + self.vbias</span><br><span class="line">        <span class="keyword">return</span> sigmoid(pre_sigmoid_activation)</span><br><span class="line"></span><br><span class="line">    <span class="comment">#转换函数主要功能是通过给定的隐层采样来执行cd更新</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">gibbs_hvh</span><span class="params">(self, h0_sample)</span>:</span></span><br><span class="line">        v1_mean, v1_sample = self.sample_v_given_h(h0_sample)</span><br><span class="line">        h1_mean, h1_sample = self.sample_h_given_v(v1_sample)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> [v1_mean, v1_sample,</span><br><span class="line">                h1_mean, h1_sample]</span><br><span class="line"></span><br><span class="line">    <span class="comment">#计算重构误差     </span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">get_reconstruction_cross_entropy</span><span class="params">(self)</span>:</span></span><br><span class="line">        pre_sigmoid_activation_h = numpy.dot(self.input, self.W) + self.hbias</span><br><span class="line">        sigmoid_activation_h = sigmoid(pre_sigmoid_activation_h)</span><br><span class="line"></span><br><span class="line">        pre_sigmoid_activation_v = numpy.dot(sigmoid_activation_h, self.W.T) + self.vbias</span><br><span class="line">        sigmoid_activation_v = sigmoid(pre_sigmoid_activation_v)</span><br><span class="line"></span><br><span class="line">        cross_entropy =  - numpy.mean(</span><br><span class="line">            numpy.sum(self.input * numpy.log(sigmoid_activation_v) +</span><br><span class="line">            (<span class="number">1</span> - self.input) * numpy.log(<span class="number">1</span> - sigmoid_activation_v),</span><br><span class="line">                      axis=<span class="number">1</span>))</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> cross_entropy</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">reconstruct</span><span class="params">(self, v)</span>:</span></span><br><span class="line">        h = sigmoid(numpy.dot(v, self.W) + self.hbias)</span><br><span class="line">        reconstructed_v = sigmoid(numpy.dot(h, self.W.T) + self.vbias)</span><br><span class="line">        <span class="keyword">return</span> reconstructed_v</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">test_rbm</span><span class="params">(learning_rate=<span class="number">0.1</span>, k=<span class="number">1</span>, training_epochs=<span class="number">50</span>)</span>:</span></span><br><span class="line">    data = numpy.array([[<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>],</span><br><span class="line">                        [<span class="number">1</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>],</span><br><span class="line">                        [<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>],</span><br><span class="line">                        [<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>],</span><br><span class="line">                        [<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>],</span><br><span class="line">                        [<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>]])</span><br><span class="line">    data = np.array(data)</span><br><span class="line">    data = data.transpose()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    rng = numpy.random.RandomState(<span class="number">123</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># construct RBM</span></span><br><span class="line">    rbm = RBM(input=data, n_visible=<span class="number">6</span>, n_hidden=<span class="number">2</span>, rng=rng)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># rbm = RBM(input=data, n_visible=784, n_hidden=2, rng=rng)</span></span><br><span class="line">    <span class="comment"># train</span></span><br><span class="line">    <span class="keyword">for</span> epoch <span class="keyword">in</span> xrange(training_epochs):</span><br><span class="line">        rbm.contrastive_divergence(lr=learning_rate, k=k)</span><br><span class="line">        cost = rbm.get_reconstruction_cross_entropy()</span><br><span class="line">        <span class="keyword">print</span> &gt;&gt; sys.stderr, <span class="string">'Training epoch %d, cost is '</span> % epoch, cost</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment"># test</span></span><br><span class="line">    v = numpy.array([[<span class="number">1</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>],</span><br><span class="line">                     [<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">0</span>]])</span><br><span class="line"></span><br><span class="line">    <span class="comment"># v=data[1,:]</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">print</span> rbm.reconstruct(v)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:</span><br><span class="line">    test_rbm()</span><br></pre></td></tr></table></figure>
+  </div>
+  <footer class="article-footer">
+    
+  <div class="cc">
+    <a href="http://creativecommons.org/licenses/by-sa/4.0/deed.e" target="_blank" title="Attribution-ShareAlike">
+      <img src="/images/cc/cc.png">
+      
+          <img src="/images/cc/by.png">
+        
+          <img src="/images/cc/sa.png">
+      
+      <span>
+        This work is licensed under a Creative Commons Attribution-ShareAlike 4.0 International License.
+      </span>
+    </a>
+  </div>
+
+
+    
+
+  </footer>
+  <footer class="article-footer">
+  
+      <section class="livere" id="comments">
+    <!-- 来必力City版安装代码 -->
+<div id="lv-container" data-id="city" data-uid="MTAyMC8zODI5Ny8xNDgyNQ==">
+ <script type="text/javascript">
+   (function(d, s) {
+       var j, e = d.getElementsByTagName(s)[0];
+
+       if (typeof LivereTower === 'function') { return; }
+
+       j = d.createElement(s);
+       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+       j.async = true;
+
+       e.parentNode.insertBefore(j, e);
+   })(document, 'script');
+ </script>
+<noscript> 为正常使用来必力评论功能请激活JavaScript</noscript>
+</div>
+<!-- City版安装代码已完成 -->
+</section>
+    
+  </footer>
+</article>
+
+
+
+
+
+
+
+          <div align="center" class="main-footer">
+<!-- 根据页面mathjax变量决定是否加载MathJax数学公式js -->
+
+<span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span>
+<script>
+    var now = new Date(); 
+    function createtime() { 
+        var grt= new Date("07/20/2018 12:49:00");//此处修改你的建站时间或者网站上线时间 
+        now.setTime(now.getTime()+250); 
+        days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days); 
+        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours); 
+        if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum); 
+        mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;} 
+        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum); 
+        snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;} 
+        document.getElementById("timeDate").innerHTML = "本站已安全运行 "+dnum+" 天 "; 
+        document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒"; 
+    } 
+setInterval("createtime()",250);
+</script>
+  
+    © 2018 Yuan Enming - Powered by <a href="http://hexo.io" target="_blank">Hexo</a> - Theme <a href="https://github.com/denjones/hexo-theme-chan" target="_blank">Chan</a>
+  
+  <script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+  
+  _st('install','iCyu54VhBnr8QxsJnwf6','2.0.0');
+</script>
+</div>
+
+      
+        </div>
+      
+    </div>
+  </div>
+  <script src="//apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+
+  <link rel="stylesheet" href="/PhotoSwipe/photoswipe.css">
+  <link rel="stylesheet" href="/PhotoSwipe/default-skin/default-skin.css">
+
+  <!-- Root element of PhotoSwipe. Must have class pswp. -->
+  <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe.
+             It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+      <!-- Container that holds slides.
+                PhotoSwipe keeps only 3 of them in the DOM to save memory.
+                Don't modify these 3 pswp__item elements, data is added later on. -->
+      <div class="pswp__container">
+        <div class="pswp__item"></div>
+        <div class="pswp__item"></div>
+        <div class="pswp__item"></div>
+      </div>
+
+      <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+      <div class="pswp__ui pswp__ui--hidden">
+
+        <div class="pswp__top-bar">
+
+          <!--  Controls are self-explanatory. Order can be changed. -->
+
+          <div class="pswp__counter"></div>
+
+          <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+          <button class="pswp__button pswp__button--share" title="Share"></button>
+
+          <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+          <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+          <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+          <!-- element will get class pswp__preloader--active when preloader is running -->
+          <div class="pswp__preloader">
+            <div class="pswp__preloader__icn">
+              <div class="pswp__preloader__cut">
+                <div class="pswp__preloader__donut"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+          <div class="pswp__share-tooltip"></div>
+        </div>
+
+        <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button>
+
+        <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button>
+
+        <div class="pswp__caption">
+          <div class="pswp__caption__center"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="/PhotoSwipe/photoswipe.js"></script>
+  <script src="/PhotoSwipe/photoswipe-ui-default.js"></script>
+
+
+<script src="/perfect-scrollbar/js/min/perfect-scrollbar.min.js"></script>
+<script src="/scripts/main.js"></script>
+
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>
