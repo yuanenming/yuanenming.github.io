@@ -8,21 +8,22 @@
 
 <title>
   
-    Archive: 2018
+    Harvard COMPSCI 224 Notes
   
 </title>
 
-<meta name="description" content="If you have great talents, industry will improve them; if you have but moderate abilities, industry will supply their deficiency.">
-<meta name="keywords" content="Machine Learning, Bioinformatics">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Yuan Enming">
-<meta property="og:url" content="http://www.yuanenming.com/archives/2018/index.html">
+<meta name="description" content="(http://people.seas.harvard.edu/~minilek/cs224/fall14/lec.html) Lecture 1The goal of this lession Increased ability to analyse and create algorithms Looking at different models within which to analyze">
+<meta name="keywords" content="Algorithm">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Harvard COMPSCI 224 Notes">
+<meta property="og:url" content="http://www.yuanenming.com/2018/11/01/Harvard-COMPSCI-224-Notes/index.html">
 <meta property="og:site_name" content="Yuan Enming">
-<meta property="og:description" content="If you have great talents, industry will improve them; if you have but moderate abilities, industry will supply their deficiency.">
+<meta property="og:description" content="(http://people.seas.harvard.edu/~minilek/cs224/fall14/lec.html) Lecture 1The goal of this lession Increased ability to analyse and create algorithms Looking at different models within which to analyze">
 <meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2018-11-01T09:09:38.317Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Yuan Enming">
-<meta name="twitter:description" content="If you have great talents, industry will improve them; if you have but moderate abilities, industry will supply their deficiency.">
+<meta name="twitter:title" content="Harvard COMPSCI 224 Notes">
+<meta name="twitter:description" content="(http://people.seas.harvard.edu/~minilek/cs224/fall14/lec.html) Lecture 1The goal of this lession Increased ability to analyse and create algorithms Looking at different models within which to analyze">
 
 
   <link rel="alternative" href="/atom.xml" title="Yuan Enming" type="application/atom+xml">
@@ -156,47 +157,37 @@
       
         <div style="max-width: 1000px">
       
-          
-
+          <article id="post-Harvard-COMPSCI-224-Notes" class="article article-type-post">
   
-  
-    
+    <h1 class="article-header">
+      Harvard COMPSCI 224 Notes
       
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <h1><a href="/archives/2018" class="archive-year">2018</a></h1>
-        </div>
-        <div class="post-list">
-    
+    </h1>
   
 
-    <div class="post-list-item article">
-      <h3 class="article-header">
-        <a href="/2018/11/01/Harvard-COMPSCI-224-Notes/" >
-  Harvard COMPSCI 224 Notes
-</a>
+  
 
-      </h3>
-      
-
-      <div class="article-info">
-        <a href="/2018/11/01/Harvard-COMPSCI-224-Notes/"><span class="article-date">
+  <div class="article-info">
+    <span class="article-date">
   2018-11-01
 </span>
-</a>
-        
 
-        
+    
+
+    
 	<span class="article-tag tagcloud">
 		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Algorithm/">Algorithm</a></li></ul>
 	</span>
 
 
-      </div>
-      <div class="article-entry">
-        
-          <p>(<a href="http://people.seas.harvard.edu/~minilek/cs224/fall14/lec.html" target="_blank" rel="noopener">http://people.seas.harvard.edu/~minilek/cs224/fall14/lec.html</a>)</p>
+  </div>
+  <div class="article-entry">
+  
+<div id="toc">
+  <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Lecture-1"><span class="toc-text">Lecture 1</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#The-goal-of-this-lession"><span class="toc-text">The goal of this lession</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Static-and-Dynamic-Predecessor-Problem"><span class="toc-text">Static and Dynamic Predecessor Problem</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Word-RAM-model"><span class="toc-text">Word RAM model</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Proposed-Solutions-to-the-Predecessor-Problem"><span class="toc-text">Proposed Solutions to the Predecessor Problem</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Aside-on-Sorting"><span class="toc-text">Aside on Sorting</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#van-Emde-Boas-Trees-vEB-trees"><span class="toc-text">van Emde Boas Trees (vEB trees)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Y-Fast-Tries"><span class="toc-text">Y-Fast Tries</span></a></li></ol></li></ol>
+</div>
+
+    <p>(<a href="http://people.seas.harvard.edu/~minilek/cs224/fall14/lec.html" target="_blank" rel="noopener">http://people.seas.harvard.edu/~minilek/cs224/fall14/lec.html</a>)</p>
 <h1 id="Lecture-1"><a href="#Lecture-1" class="headerlink" title="Lecture 1"></a>Lecture 1</h1><h2 id="The-goal-of-this-lession"><a href="#The-goal-of-this-lession" class="headerlink" title="The goal of this lession"></a>The goal of this lession</h2><ul>
 <li>Increased ability to analyse and create algorithms</li>
 <li>Looking at different models within which to analyze algorithms</li>
@@ -225,397 +216,55 @@
 <p>To improve the space usage of the tree in a similar way as before,we can only store the $1$’s in a hash table, where the key would be the index of the node. Now when we search, we only check whether the key exists. This will require $\Theta(nw)$ space since each level has at most $n$ $1$’s, and is called an x-fast trie. </p>
 <p>To improve to a y-fast trie which will use $\Theta(n)$ space, we use a technique called indirection. We have an x-fast trie on $n/w$ items, where each item is a balanced BST that has roughly $w$ sub-items whose smallest element is the representative element for the top level x-fast trie. This will now take $O(n)$ space. Each BST will contain an interval of elements in order. We use the top level trie to find which BST to use. Searching in this BST will take $O(log(w))$ time. We allow each BST to have between $w/2$ and $2w$ elements, and so only need to modify the trie at most every $\Theta(w)$ steps, which will cost $log{w}$ and thus will not affect our amortized performance. Therefore, insertion (and deletion) can still be done in $O(log(w))$ time. </p>
 
-        
-      </div>
-    </div>
-
-  
-
-  
-  
-    
-  
-
-    <div class="post-list-item article">
-      <h3 class="article-header">
-        <a href="/2018/10/07/Machine-Learning-Folk-Wisdom/" >
-  Machine Learning Folk Wisdom
-</a>
-
-      </h3>
-      
-
-      <div class="article-info">
-        <a href="/2018/10/07/Machine-Learning-Folk-Wisdom/"><span class="article-date">
-  2018-10-07
-</span>
-</a>
-        
-
-        
-	<span class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Machine-Learning/">Machine Learning</a></li></ul>
-	</span>
-
-
-      </div>
-      <div class="article-entry">
-        
-          <p>Today I have read an interesting paper. It’s about the ‘black art’ about machine learnig. The author illustrated some intuitions about machine learning which are hard to find from textbooks.<br></p>
-          <p>
-            <a href="/2018/10/07/Machine-Learning-Folk-Wisdom/">
-              Read More
-            </a>
-          </p>
-        
-      </div>
-    </div>
-
-  
-
-  
-  
-    
-  
-
-    <div class="post-list-item article">
-      <h3 class="article-header">
-        <a href="/2018/10/07/Tensorflow进阶/" >
-  Tensorflow进阶
-</a>
-
-      </h3>
-      
-
-      <div class="article-info">
-        <a href="/2018/10/07/Tensorflow进阶/"><span class="article-date">
-  2018-10-07
-</span>
-</a>
-        
-
-        
-	<span class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Deep-Learning/">Deep Learning</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/TensorFlow/">TensorFlow</a></li></ul>
-	</span>
-
-
-      </div>
-      <div class="article-entry">
-        
-          <p>I will present more examples about TensorFlow and different NN architectures.<br></p>
-          <p>
-            <a href="/2018/10/07/Tensorflow进阶/">
-              Read More
-            </a>
-          </p>
-        
-      </div>
-    </div>
-
-  
-
-  
-  
-    
-  
-
-    <div class="post-list-item article">
-      <h3 class="article-header">
-        <a href="/2018/10/05/Restricted-Boltzmann-Machine/" >
-  Restricted Boltzmann Machine
-</a>
-
-      </h3>
-      
-
-      <div class="article-info">
-        <a href="/2018/10/05/Restricted-Boltzmann-Machine/"><span class="article-date">
-  2018-10-05
-</span>
-</a>
-        
-
-        
-	<span class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Algorithm/">Algorithm</a></li></ul>
-	</span>
-
-
-      </div>
-      <div class="article-entry">
-        
-          <p>There are some notes about the famous machine learning model: Restricted Boltzmann Machine(RBM), Which was one of the most basic neural networks.</p>
-          <p>
-            <a href="/2018/10/05/Restricted-Boltzmann-Machine/">
-              Read More
-            </a>
-          </p>
-        
-      </div>
-    </div>
-
-  
-
-  
-  
-    
-  
-
-    <div class="post-list-item article">
-      <h3 class="article-header">
-        <a href="/2018/09/29/Protein-function-prediction/" >
-  Protein function prediction
-</a>
-
-      </h3>
-      
-
-      <div class="article-info">
-        <a href="/2018/09/29/Protein-function-prediction/"><span class="article-date">
-  2018-09-29
-</span>
-</a>
-        
-
-        
-	<span class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Project/">Project</a></li></ul>
-	</span>
-
-
-      </div>
-      <div class="article-entry">
-        
-          <p>Protein Function Prediction is the topic of my graduation project.</p>
-          <p>
-            <a href="/2018/09/29/Protein-function-prediction/">
-              Read More
-            </a>
-          </p>
-        
-      </div>
-    </div>
-
-  
-
-  
-  
-    
-  
-
-    <div class="post-list-item article">
-      <h3 class="article-header">
-        <a href="/2018/09/22/Algorithm-Generate-Parentheses/" >
-  Algorithm:Generate Parentheses
-</a>
-
-      </h3>
-      
-
-      <div class="article-info">
-        <a href="/2018/09/22/Algorithm-Generate-Parentheses/"><span class="article-date">
-  2018-09-22
-</span>
-</a>
-        
-
-        
-	<span class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Algorithm/">Algorithm</a></li></ul>
-	</span>
-
-
-      </div>
-      <div class="article-entry">
-        
-          <p>I will write some notes for the Leetcode Algorithm problems. And I will keep update.<br></p>
-          <p>
-            <a href="/2018/09/22/Algorithm-Generate-Parentheses/">
-              Read More
-            </a>
-          </p>
-        
-      </div>
-    </div>
-
-  
-
-  
-  
-    
-  
-
-    <div class="post-list-item article">
-      <h3 class="article-header">
-        <a href="/2018/09/16/MetLab/" >
-  MetLab
-</a>
-
-      </h3>
-      
-
-      <div class="article-info">
-        <a href="/2018/09/16/MetLab/"><span class="article-date">
-  2018-09-16
-</span>
-</a>
-        
-
-        
-
-      </div>
-      <div class="article-entry">
-        
-          <h1 id="Model-File"><a href="#Model-File" class="headerlink" title="Model File"></a>Model File</h1><p>模型文件是每个子图双井号开头<br>然后代谢物ID name<br>然后反应ID  反应名字    是否可逆<br>井号反应ID  反应物 -   生成物</p>
-<h1 id="Model-2-Dot"><a href="#Model-2-Dot" class="headerlink" title="Model 2 Dot"></a>Model 2 Dot</h1><p>input format (我给你的格式):</p>
-<ul>
-<li><p>一个三个元素的列表：[net_name, [nodelist], {graph_dictionary}]</p>
-<ol>
-<li><p>net_name: str<br>   图的名字</p>
-</li>
-<li><p>[nodelist]: list<br>   列表中的每个元素是字符串其格式是 ‘node_name, node_id, node_type, reverse’<br>   其中node_type为数字0或1，0表示metabolite，1表示reaction。<br>   其中reverse为0或1或空，用来表示反应是否可逆。如果节点为反应物，则为空</p>
-</li>
-<li>{graph_dictionary}: dictionary<br>   可以理解成一个邻接表，是一个字典结构(字典的键与值都是节点的id)<br>   比如：<br>   <img src="/2018/09/16/MetLab/DiGraph.png" alt=""><br>   的结构为：<br>   {1:[5],2:[1],3:[1,2],4:[],5:[3,4]}</li>
-</ol>
-</li>
-</ul>
-<h1 id="TODO-List"><a href="#TODO-List" class="headerlink" title="TODO List"></a>TODO List</h1><ol>
-<li>文件读取格式优化</li>
-<li></li>
-<li></li>
-<li></li>
-</ol>
-
-        
-      </div>
-    </div>
-
-  
-
-  
-  
-    
-  
-
-    <div class="post-list-item article">
-      <h3 class="article-header">
-        <a href="/2018/09/12/科学上网/" >
-  科学上网
-</a>
-
-      </h3>
-      
-
-      <div class="article-info">
-        <a href="/2018/09/12/科学上网/"><span class="article-date">
-  2018-09-12
-</span>
-</a>
-        
-
-        
-
-      </div>
-      <div class="article-entry">
-        
-          <p>emmmmm~<br>一直想自己搞一下科学上网，然后发现了个最无脑的帖子（你只需要follow，半小时应该就OK了），是基于VPS+SS的梯子。现在先mark下来<br>(<a href="https://www.yigeni.com/build-a-wall-ss-server/" target="_blank" rel="noopener">https://www.yigeni.com/build-a-wall-ss-server/</a>)</p>
-
-        
-      </div>
-    </div>
-
-  
-
-  
-  
-    
-  
-
-    <div class="post-list-item article">
-      <h3 class="article-header">
-        <a href="/2018/09/12/TensorFlow-入门/" >
-  TensorFlow 入门
-</a>
-
-      </h3>
-      
-
-      <div class="article-info">
-        <a href="/2018/09/12/TensorFlow-入门/"><span class="article-date">
-  2018-09-12
-</span>
-</a>
-        
-
-        
-	<span class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Deep-Learning/">Deep Learning</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/TensorFlow/">TensorFlow</a></li></ul>
-	</span>
-
-
-      </div>
-      <div class="article-entry">
-        
-          <p>TensorFlow是目前最常用的深度学习框架（虽然大有被PyTorch赶超之势），代码入门我将以jupyter-notebook的形式展示，部分代码来自github tutorial.</p>
-          <p>
-            <a href="/2018/09/12/TensorFlow-入门/">
-              Read More
-            </a>
-          </p>
-        
-      </div>
-    </div>
-
-  
-
-  
-  
-    
-  
-
-    <div class="post-list-item article">
-      <h3 class="article-header">
-        <a href="/2018/09/08/Information-theory-in-Machine-Learning/" >
-  Information Theory in Machine Learning
-</a>
-
-      </h3>
-      
-
-      <div class="article-info">
-        <a href="/2018/09/08/Information-theory-in-Machine-Learning/"><span class="article-date">
-  2018-09-08
-</span>
-</a>
-        
-
-        
-	<span class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Machine-Learning/">Machine Learning</a></li></ul>
-	</span>
-
-
-      </div>
-      <div class="article-entry">
-        
-          <p>Materials, energy and information is the fundermental things on the earth.<br>信息论与信息熵是 AI 或机器学习中非常重要的概念，我们经常需要使用它的关键思想来描述概率分布或者量化概率分布之间的相似性。在本文中，我们从最基本的自信息和信息熵到交叉熵讨论了信息论的基础，再由最大似然估计推导出 KL 散度而加强我们对量化分布间相似性的理解。最后我们简要讨论了信息熵在机器学习中的应用，包括通过互信息选择决策树的特征、通过交叉熵衡量分类问题的损失和贝叶斯学习等。</p>
-          <p>
-            <a href="/2018/09/08/Information-theory-in-Machine-Learning/">
-              Read More
-            </a>
-          </p>
-        
-      </div>
-    </div>
-
-  
-
-
-
-  <div class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/archives/2018/page/2/">2</a><a class="page-number" href="/archives/2018/page/3/">3</a><a class="extend next" rel="next" href="/archives/2018/page/2/">Next</a>
   </div>
+  <footer class="article-footer">
+    
+  <div class="cc">
+    <a href="http://creativecommons.org/licenses/by-sa/4.0/deed.e" target="_blank" title="Attribution-ShareAlike">
+      <img src="/images/cc/cc.png">
+      
+          <img src="/images/cc/by.png">
+        
+          <img src="/images/cc/sa.png">
+      
+      <span>
+        This work is licensed under a Creative Commons Attribution-ShareAlike 4.0 International License.
+      </span>
+    </a>
+  </div>
+
+
+    
+
+  </footer>
+  <footer class="article-footer">
+  
+      <section class="livere" id="comments">
+    <!-- 来必力City版安装代码 -->
+<div id="lv-container" data-id="city" data-uid="MTAyMC8zODI5Ny8xNDgyNQ==">
+ <script type="text/javascript">
+   (function(d, s) {
+       var j, e = d.getElementsByTagName(s)[0];
+
+       if (typeof LivereTower === 'function') { return; }
+
+       j = d.createElement(s);
+       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+       j.async = true;
+
+       e.parentNode.insertBefore(j, e);
+   })(document, 'script');
+ </script>
+<noscript> 为正常使用来必力评论功能请激活JavaScript</noscript>
+</div>
+<!-- City版安装代码已完成 -->
+</section>
+    
+  </footer>
+</article>
+
+
+
 
 
 

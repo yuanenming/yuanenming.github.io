@@ -89,14 +89,14 @@
             
               <li class="tag-list-container">
                 <a href="javascript:;">Tag</a>
-                <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/testing/">-testing</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Algorithm/">Algorithm</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Blog/">Blog</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Book/">Book</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Deep-Learning/">Deep Learning</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Machine-Learning/">Machine Learning</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TensorFlow/">TensorFlow</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tour/">Tour</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/github/">github</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/toturials/">toturials</a><span class="tag-list-count">1</span></li></ul>
+                <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/testing/">-testing</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Algorithm/">Algorithm</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Blog/">Blog</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Book/">Book</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Deep-Learning/">Deep Learning</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Machine-Learning/">Machine Learning</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Project/">Project</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TensorFlow/">TensorFlow</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tour/">Tour</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/github/">github</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/toturials/">toturials</a><span class="tag-list-count">1</span></li></ul>
               </li>
             
           
             
               <li class="archive-list-container">
                 <a href="javascript:;">Archive</a>
-                <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/">2018</a><span class="archive-list-count">20</span></li></ul>
+                <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/">2018</a><span class="archive-list-count">21</span></li></ul>
               </li>
             
           
@@ -158,6 +158,73 @@
       
           <h1>Algorithm</h1>
 
+
+  
+  
+    <div class="post-list">
+  
+
+    <div class="post-list-item article">
+      <h3 class="article-header">
+        <a href="/2018/11/01/Harvard-COMPSCI-224-Notes/" >
+  Harvard COMPSCI 224 Notes
+</a>
+
+      </h3>
+      
+
+      <div class="article-info">
+        <a href="/2018/11/01/Harvard-COMPSCI-224-Notes/"><span class="article-date">
+  2018-11-01
+</span>
+</a>
+        
+
+        
+	<span class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Algorithm/">Algorithm</a></li></ul>
+	</span>
+
+
+      </div>
+      <div class="article-entry">
+        
+          <p>(<a href="http://people.seas.harvard.edu/~minilek/cs224/fall14/lec.html" target="_blank" rel="noopener">http://people.seas.harvard.edu/~minilek/cs224/fall14/lec.html</a>)</p>
+<h1 id="Lecture-1"><a href="#Lecture-1" class="headerlink" title="Lecture 1"></a>Lecture 1</h1><h2 id="The-goal-of-this-lession"><a href="#The-goal-of-this-lession" class="headerlink" title="The goal of this lession"></a>The goal of this lession</h2><ul>
+<li>Increased ability to analyse and create algorithms</li>
+<li>Looking at different models within which to analyze algorithms</li>
+</ul>
+<h2 id="Static-and-Dynamic-Predecessor-Problem"><a href="#Static-and-Dynamic-Predecessor-Problem" class="headerlink" title="Static and Dynamic Predecessor Problem"></a>Static and Dynamic Predecessor Problem</h2><p>In this problem, we desire a data structure that represents a set of items $S = \{x_1, \ldots, x_n\}$ that can satisfy predecessor queries that are of the form<br>$pred(z) = \max\{x \in S: x &lt; z\}$. We wish for a data structure that uses low space and has a fast query. For the static problem, we do not support insertions and deletions, whereas we allow these for the dynamic version of the problem. </p>
+<p>One solution for the static version is to store elements in sorted order and do a binary search for each query. For the dynamic version, we can get $O(\log{n})$  query by using a balanced BST like a red-black tree. This will take $O(n)$ space. Note that this provides for a sorting algorithm using the dynamic solution: find a max by going through the entire data and then continuously find the predecessor. This will yield an $O(n log(n))$ sort. With more complicated data structures, we will see that we can do better than this. </p>
+<h2 id="Word-RAM-model"><a href="#Word-RAM-model" class="headerlink" title="Word RAM model"></a>Word RAM model</h2><p>In the word RAM model, items are integers in $\{0, 1, \ldots, 2^{w} - 1\}$, where the word size is $w$. The universe $u$ will then have size $u = 2^w - 1$.<br>We assume that all pointers can fit in a word, and that we have enough space to fit everything, so $u \ge n$ and $w \ge log {n}$. All normal operations such as $+ - / * ~ ^ | \&amp; &gt;&gt; &lt;&lt;$ are supported in constant time on integers that fit in a word.</p>
+<h3 id="Proposed-Solutions-to-the-Predecessor-Problem"><a href="#Proposed-Solutions-to-the-Predecessor-Problem" class="headerlink" title="Proposed Solutions to the Predecessor Problem"></a>Proposed Solutions to the Predecessor Problem</h3><p>We will cover two data structures as solutions:</p>
+<ul>
+<li>Van Emde Boas tree — Update and query are $\Theta(\log{w})$ time. However, the naive version uses $\Theta(u)$ space. This can be made $\Theta(n)$ with randomization. A very similar structure is the y-fast trie which has the same bounds, and is due to Willard</li>
+<li>Fusion trees, from a paper by Fredman and Willard  — Query in $\Theta(\log_w{n})$ and linear space. For simplicity, this class will only consider these for the static version of the predecessor problem.</li>
+</ul>
+<p>By choosing the better of these two, we can achieve $\min(\log{w}, \log_w{n})$ which is at least as good as $\sqrt{\log{n}}$. This implies that with dynamic trees, we can have $O(n \sqrt{\log{n}})$ sorting. This won’t be fully covered, as we will not go into dynamic fusion trees.</p>
+<h3 id="Aside-on-Sorting"><a href="#Aside-on-Sorting" class="headerlink" title="Aside on Sorting"></a>Aside on Sorting</h3><p>We can actually get faster sorting. In particular, $O(n \log \log{n})$ deterministically was demonstrated by Han, and $O(n \sqrt{\log \log{n}})$ randomized was provided by Han and Thorup soon afterwards. It is an open problem if you can get linear within this model.</p>
+<h2 id="van-Emde-Boas-Trees-vEB-trees"><a href="#van-Emde-Boas-Trees-vEB-trees" class="headerlink" title="van Emde Boas Trees (vEB trees)"></a>van Emde Boas Trees (vEB trees)</h2><p>The basic idea is divide-and-conquer and requires bit manipulation. Let us define vEB trees recursively. Let $vEB_u$ denote the vEB tree of size $u$. It will store the<br>minimum ($V.min$) and maximum ($V.max$) elements, a top $vEB_{\sqrt{u}}$ sub-tree ($V.summary$) and $\sqrt{u}$ bottom $vEB_{\sqrt{u}}$ sub-trees ($V.cluster$).</p>
+<p>Let us express the element $x$ in binary and divide it into a lower half and an upper half of bits $\langle c, i \rangle$. This is basically writing $x$ in base $\sqrt{u}$. We will store $i$ in the $c$-th cluster. The summary will track which clusters are non-empty, so we will insert $c$ into the summary if the $c$-th cluster was empty before.</p>
+<p>Queries: If what we are looking for is below the minimum of the corresponding cluster or the cluster is empty, we find the predecessor to that cluster in the summary and get the maximum element from that cluster. Otherwise, we know the predecessor is in the cluster, and we make a recursive call.<br>Pseudocode:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">pred(V, x = &lt;c, i&gt;)</span><br><span class="line">    if x &gt; V.max: return V.max</span><br><span class="line">    else if V.cluster[c].min &lt; x:</span><br><span class="line">        return pred(V.cluster[c], i)</span><br><span class="line">    else:</span><br><span class="line">        c&apos; = pred(V.summary, c)</span><br><span class="line">        return V.cluster[c&apos;].max</span><br></pre></td></tr></table></figure></p>
+<p>To do insert, we use the trick that the minimum of a tree will not be stored in its clusters and only in $V.min$. You can think of the min as a buffer. To check if a tree is empty, we can just check if its min is set.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">insert(V, x = &lt;c, i&gt;):</span><br><span class="line">    if x &gt; V.max:</span><br><span class="line">        V.max = x</span><br><span class="line">    if V is empty:</span><br><span class="line">        V.min = x; </span><br><span class="line">        return;</span><br><span class="line">    if x &lt; V.min: swap(x, V.min)</span><br><span class="line">    if V.cluster[c].min == null:</span><br><span class="line">        insert(V.summary, c)</span><br><span class="line">    insert(V.cluster[c], i)</span><br></pre></td></tr></table></figure></p>
+<p>When we call the query, we make one recursive call which sets up the recurrence $T(u) = T(\sqrt{u}) + O(1)$, which then implies that $T(u) = O(\log{\log{u}}) = O(\log{w})$.</p>
+<p>For insertion, it may look like we can make 2 recursive calls in the worst case (when the cluster is empty), but in this case, inserting $i$ will be constant time since the cluster was empty. Thus, we have that $T(u) = T(\sqrt{u}) + O(1)$. Then, $T(u) = O(\log{\log{u}})$.</p>
+<p>In terms of space of vEB trees, we have $S(u) = (\sqrt{u} + 1) S(\sqrt{u}) + O(1)$, which implies that $S(u) = \Theta(u)$. This is poor.</p>
+<p>To improve space, in a vEB data structure, we take advantage of the fact that almost all of the clusters are empty. Let us have a hash table instead. A key is a cluster ID $c$ and its value is a pointer to the corresponding non-empty cluster. We claim that this vEB with the hash table uses $\Theta(n)$ space. </p>
+<p>Proof: If we charge the cost of storing ($c$, ptr to cluster $c$) to the minimum element of cluster $c$, each minimum is charged exactly once, so the amount of space will be linear in the number of elements we store.</p>
+<h2 id="Y-Fast-Tries"><a href="#Y-Fast-Tries" class="headerlink" title="Y-Fast Tries"></a>Y-Fast Tries</h2><p>We will now cover a slightly different approach that yields the same bounds. </p>
+<p>Another solution is using a bit array of length $u$. Bits will be set to $1$ if the corresponding element is in the set and $0$ otherwise. This naively uses $O(u)$ time. To speed this up, we also build a perfect binary tree, where each internal node stores the logical or of its two children. Store all the leaf 1’s in a doubly linked list. To get a predecessor of a $1$, just go backwards in the linked list. To get a predecessor of a $0$, go up the tree and find the nearest $1$. Then, we follow the $1$’s to find the $1$ in the other branch. If we hit the ancestor $1$ from the right branch, we find the maximum and this yields the predecessor. Otherwise, we have find the minimum which is the successor $1$ and we can step backwards in our doubly linked list to find the predecessor. Naively, this takes $O(log{u})$ time to find the first ancestor which is a $1$. However, we can use the fact that all paths to the top are monotone and can do a binary search to find where it changes from $0$ to $1$. If we store the tree as an array, we can find the $k$-th ancestor simply by right shifting the index by $k$ bits. This means we can find the ancestor is $O(log{log(u)})$</p>
+<p>To improve the space usage of the tree in a similar way as before,we can only store the $1$’s in a hash table, where the key would be the index of the node. Now when we search, we only check whether the key exists. This will require $\Theta(nw)$ space since each level has at most $n$ $1$’s, and is called an x-fast trie. </p>
+<p>To improve to a y-fast trie which will use $\Theta(n)$ space, we use a technique called indirection. We have an x-fast trie on $n/w$ items, where each item is a balanced BST that has roughly $w$ sub-items whose smallest element is the representative element for the top level x-fast trie. This will now take $O(n)$ space. Each BST will contain an interval of elements in order. We use the top level trie to find which BST to use. Searching in this BST will take $O(log(w))$ time. We allow each BST to have between $w/2$ and $2w$ elements, and so only need to modify the trie at most every $\Theta(w)$ steps, which will cost $log{w}$ and thus will not affect our amortized performance. Therefore, insertion (and deletion) can still be done in $O(log(w))$ time. </p>
+
+        
+      </div>
+    </div>
+
+  
+    </div>
+  
 
   
   
