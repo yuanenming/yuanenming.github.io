@@ -8,22 +8,22 @@
 
 <title>
   
-    categories
+    Daily Temperatures
   
 </title>
 
-<meta name="description" content="If you have great talents, industry will improve them; if you have but moderate abilities, industry will supply their deficiency.">
-<meta name="keywords" content="Machine Learning, Bioinformatics">
-<meta property="og:type" content="website">
-<meta property="og:title" content="categories">
-<meta property="og:url" content="http://www.yuanenming.com/categories/index.html">
+<meta name="description" content="Description Given a list of daily temperatures T, return a list such that, for each day in the input, tells you how many days you would have to wait until a warmer temperature. If there is no future d">
+<meta name="keywords" content="Algorithm,Leetcode">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Daily Temperatures">
+<meta property="og:url" content="http://www.yuanenming.com/2018/11/03/Daily-Temperatures/index.html">
 <meta property="og:site_name" content="Yuan Enming">
-<meta property="og:description" content="If you have great talents, industry will improve them; if you have but moderate abilities, industry will supply their deficiency.">
+<meta property="og:description" content="Description Given a list of daily temperatures T, return a list such that, for each day in the input, tells you how many days you would have to wait until a warmer temperature. If there is no future d">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-07-24T02:35:33.084Z">
+<meta property="og:updated_time" content="2018-11-03T03:34:35.154Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="categories">
-<meta name="twitter:description" content="If you have great talents, industry will improve them; if you have but moderate abilities, industry will supply their deficiency.">
+<meta name="twitter:title" content="Daily Temperatures">
+<meta name="twitter:description" content="Description Given a list of daily temperatures T, return a list such that, for each day in the input, tells you how many days you would have to wait until a warmer temperature. If there is no future d">
 
 
   <link rel="alternative" href="/atom.xml" title="Yuan Enming" type="application/atom+xml">
@@ -157,10 +157,10 @@
       
         <div style="max-width: 1000px">
       
-          <article id="page-" class="article article-type-page">
+          <article id="post-Daily-Temperatures" class="article article-type-post">
   
     <h1 class="article-header">
-      categories
+      Daily Temperatures
       
     </h1>
   
@@ -169,21 +169,31 @@
 
   <div class="article-info">
     <span class="article-date">
-  2018-07-24
+  2018-11-03
 </span>
 
     
 
     
+	<span class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Algorithm/">Algorithm</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Leetcode/">Leetcode</a></li></ul>
+	</span>
+
 
   </div>
   <div class="article-entry">
   
 <div id="toc">
-  
+  <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Description"><span class="toc-text">Description</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Idea"><span class="toc-text">Idea</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Code"><span class="toc-text">Code</span></a></li></ol>
 </div>
 
-    
+    <h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><hr>
+<p>Given a list of daily temperatures <code>T</code>, return a list such that, for each day in the input, tells you how many days you would have to wait until a warmer temperature. If there is no future day for which this is possible, put <code>0</code> instead.</p>
+<p>For example, given the list of temperatures <code>T = [73, 74, 75, 71, 69, 72, 76, 73]</code>, your output should be <code>[1, 1, 4, 2, 1, 1, 0, 0]</code>.</p>
+<p>Note: The length of <code>temperatures</code> will be in the range <code>[1, 30000]</code>. Each temperature will be an integer in the range <code>[30, 100]</code>.</p>
+<a id="more"></a>
+<h2 id="Idea"><a href="#Idea" class="headerlink" title="Idea"></a>Idea</h2><p>这大概是我做的最顺手的一个题了，也比较简单。我的做法是倒序填入，trick是利用已经填好的来jump，所以这个问题的最差情况下时间复杂度是<code>O(mn)</code>，其中m是temperature的取值个数，但平均情况下会远小于<code>O(mn)</code>，此题m确定可认为是<code>O(n)</code>。空间复杂度<code>O(1)</code>。</p>
+<h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">dailyTemperatures</span><span class="params">(self, T)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :type T: List[int]</span></span><br><span class="line"><span class="string">        :rtype: List[int]</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        res = [<span class="number">0</span>]*len(T)</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(len(T)<span class="number">-2</span>, <span class="number">-1</span>, <span class="number">-1</span>):</span><br><span class="line">            <span class="keyword">if</span> T[i+<span class="number">1</span>] &gt; T[i]:</span><br><span class="line">                res[i] = <span class="number">1</span></span><br><span class="line">            <span class="keyword">elif</span> res[i+<span class="number">1</span>] == <span class="number">0</span>:</span><br><span class="line">                res[i] = <span class="number">0</span></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                tmp = i + <span class="number">1</span> + res[i+<span class="number">1</span>]</span><br><span class="line">                <span class="keyword">while</span> T[tmp] &lt;= T[i] <span class="keyword">and</span> res[tmp] != <span class="number">0</span>:</span><br><span class="line">                    tmp += res[tmp]</span><br><span class="line">                res[i] = tmp - i</span><br><span class="line">                <span class="keyword">if</span> T[tmp] &lt;= T[i] <span class="keyword">and</span> res[tmp] == <span class="number">0</span>:</span><br><span class="line">                    res[i] = <span class="number">0</span></span><br><span class="line">        <span class="keyword">return</span> res</span><br></pre></td></tr></table></figure>
   </div>
   <footer class="article-footer">
     
