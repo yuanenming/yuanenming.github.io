@@ -8,22 +8,22 @@
 
 <title>
   
-    Machine Learning Folk Wisdom
+    Edit Distance
   
 </title>
 
-<meta name="description" content="Today I have read an interesting paper. It’s about the ‘black art’ about machine learnig. The author illustrated some intuitions about machine learning which are hard to find from textbooks.">
-<meta name="keywords" content="Machine Learning">
+<meta name="description" content="DescriptionGiven two words word1 and word2, find the minimum number of operations required to convert word1 to word2.">
+<meta name="keywords" content="Algorithm,LeetCode">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Machine Learning Folk Wisdom">
-<meta property="og:url" content="http://www.yuanenming.com/2018/10/07/Machine-Learning-Folk-Wisdom/index.html">
+<meta property="og:title" content="Edit Distance">
+<meta property="og:url" content="http://www.yuanenming.com/2018/11/06/Edit-Distance/index.html">
 <meta property="og:site_name" content="Yuan Enming">
-<meta property="og:description" content="Today I have read an interesting paper. It’s about the ‘black art’ about machine learnig. The author illustrated some intuitions about machine learning which are hard to find from textbooks.">
+<meta property="og:description" content="DescriptionGiven two words word1 and word2, find the minimum number of operations required to convert word1 to word2.">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-10-07T13:48:00.678Z">
+<meta property="og:updated_time" content="2018-11-06T02:49:56.285Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Machine Learning Folk Wisdom">
-<meta name="twitter:description" content="Today I have read an interesting paper. It’s about the ‘black art’ about machine learnig. The author illustrated some intuitions about machine learning which are hard to find from textbooks.">
+<meta name="twitter:title" content="Edit Distance">
+<meta name="twitter:description" content="DescriptionGiven two words word1 and word2, find the minimum number of operations required to convert word1 to word2.">
 
 
   <link rel="alternative" href="/atom.xml" title="Yuan Enming" type="application/atom+xml">
@@ -157,10 +157,10 @@
       
         <div style="max-width: 1000px">
       
-          <article id="post-Machine-Learning-Folk-Wisdom" class="article article-type-post">
+          <article id="post-Edit-Distance" class="article article-type-post">
   
     <h1 class="article-header">
-      Machine Learning Folk Wisdom
+      Edit Distance
       
     </h1>
   
@@ -169,14 +169,14 @@
 
   <div class="article-info">
     <span class="article-date">
-  2018-10-07
+  2018-11-06
 </span>
 
     
 
     
 	<span class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Machine-Learning/">Machine Learning</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Algorithm/">Algorithm</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/LeetCode/">LeetCode</a></li></ul>
 	</span>
 
 
@@ -184,17 +184,28 @@
   <div class="article-entry">
   
 <div id="toc">
-  
+  <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Description"><span class="toc-text">Description</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Idea"><span class="toc-text">Idea</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Code"><span class="toc-text">Code</span></a></li></ol>
 </div>
 
-    <p>Today I have read an interesting paper. It’s about the ‘black art’ about machine learnig. The author illustrated some intuitions about machine learning which are hard to find from textbooks.<br><a id="more"></a><br>SO let’s take a look at these folk wisdom</p>
-
-
-	<div class="row">
-    <embed src="../Machine-Learning-Folk-Wisdom/A\" width="100%" height="550" type="application/pdf">
-	</div>
-
-
+    <h1 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h1><p>Given two words word1 and word2, find the minimum number of operations required to convert word1 to word2.</p>
+<a id="more"></a>
+<p>You have the following 3 operations permitted on a word:</p>
+<ol>
+<li>Insert a character</li>
+<li>Delete a character</li>
+<li>Replace a character</li>
+</ol>
+<p>Examle<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Input: word1 = &quot;horse&quot;, word2 = &quot;ros&quot;</span><br><span class="line">Output: 3</span><br><span class="line">Explanation: </span><br><span class="line">horse -&gt; rorse (replace &apos;h&apos; with &apos;r&apos;)</span><br><span class="line">rorse -&gt; rose (remove &apos;r&apos;)</span><br><span class="line">rose -&gt; ros (remove &apos;e&apos;)</span><br></pre></td></tr></table></figure></p>
+<h1 id="Idea"><a href="#Idea" class="headerlink" title="Idea"></a>Idea</h1><p>这个问题是一个DP问题，它最终解的形式并不复杂，但是并不好想。<br>其实就是建立<code>m*n</code>的棋盘，对<code>word1[:i]</code>与<code>word2[:j]</code>的转换步<code>DP[i][j]</code>，共考虑四种情况：</p>
+<ol>
+<li><code>word1[i]</code>与<code>word2[j]</code>匹配，则<code>DP[i][j] = DP[i-1][j-1]</code></li>
+<li><code>word1</code>插入</li>
+<li><code>word1</code>替换</li>
+<li><code>word1</code>删除</li>
+</ol>
+<h1 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h1><p>空间复杂度<code>O(mn)</code>版本（速度也更慢）<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">minDistance</span><span class="params">(self, word1, word2)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :type word1: str</span></span><br><span class="line"><span class="string">        :type word2: str</span></span><br><span class="line"><span class="string">        :rtype: int</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        l1 = len(word1)</span><br><span class="line">        l2 = len(word2)</span><br><span class="line">        r = [[<span class="number">0</span>] * (l2 + <span class="number">1</span>) <span class="keyword">for</span> i <span class="keyword">in</span> range(l1 + <span class="number">1</span>)]</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(l1 + <span class="number">1</span>):</span><br><span class="line">            r[i][<span class="number">0</span>] = i</span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> range(l2 + <span class="number">1</span>):</span><br><span class="line">            r[<span class="number">0</span>][j] = j</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>, l1 + <span class="number">1</span>):</span><br><span class="line">            <span class="keyword">for</span> j <span class="keyword">in</span> range(<span class="number">1</span>, l2 + <span class="number">1</span>):</span><br><span class="line">                <span class="keyword">if</span> word1[i<span class="number">-1</span>] == word2[j<span class="number">-1</span>]:</span><br><span class="line">                    r[i][j] = r[i<span class="number">-1</span>][j<span class="number">-1</span>]</span><br><span class="line">                <span class="keyword">else</span>:</span><br><span class="line">                    r[i][j] = min(r[i<span class="number">-1</span>][j<span class="number">-1</span>] + <span class="number">1</span>, r[i<span class="number">-1</span>][j] + <span class="number">1</span>, r[i][j<span class="number">-1</span>] + <span class="number">1</span>)</span><br><span class="line">        <span class="keyword">return</span> r[l1][l2]</span><br></pre></td></tr></table></figure></p>
+<p>优化为空间复杂度<code>O(min(m,n))</code>，速度也会快（上边的Beats30%，下边的95%）</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">minDistance</span><span class="params">(self, word1, word2)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :type word1: str</span></span><br><span class="line"><span class="string">        :type word2: str</span></span><br><span class="line"><span class="string">        :rtype: int</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        l1 = len(word1)</span><br><span class="line">        l2 = len(word2)</span><br><span class="line">        <span class="keyword">if</span> l1 == <span class="number">0</span>: <span class="keyword">return</span> l2</span><br><span class="line">        <span class="keyword">if</span> l2 == <span class="number">0</span> : <span class="keyword">return</span> l1</span><br><span class="line">        r = [<span class="number">0</span>] * (l2 + <span class="number">1</span>)</span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> range(l2 + <span class="number">1</span>):</span><br><span class="line">            r[j] = j</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>, l1 + <span class="number">1</span>):</span><br><span class="line">            tmp = i</span><br><span class="line">            <span class="keyword">for</span> j <span class="keyword">in</span> range(<span class="number">1</span>, l2 + <span class="number">1</span>):</span><br><span class="line">                <span class="keyword">if</span> word1[i<span class="number">-1</span>] == word2[j<span class="number">-1</span>]:</span><br><span class="line">                    tmp1 = r[j<span class="number">-1</span>]</span><br><span class="line">                <span class="keyword">else</span>:</span><br><span class="line">                    tmp1 = min(r[j<span class="number">-1</span>] + <span class="number">1</span>, r[j] + <span class="number">1</span>, tmp + <span class="number">1</span>)</span><br><span class="line">                r[j<span class="number">-1</span>] = tmp</span><br><span class="line">                tmp = tmp1</span><br><span class="line">            r[l2] = tmp</span><br><span class="line">        <span class="keyword">return</span> r[l2]</span><br></pre></td></tr></table></figure>
 
   </div>
   <footer class="article-footer">
