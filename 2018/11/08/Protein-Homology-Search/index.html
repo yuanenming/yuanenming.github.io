@@ -20,7 +20,7 @@
 <meta property="og:site_name" content="Yuan Enming">
 <meta property="og:description" content="test">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-11-08T07:05:06.825Z">
+<meta property="og:updated_time" content="2018-11-10T12:28:46.157Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Protein Homology Search">
 <meta name="twitter:description" content="test">
@@ -184,10 +184,24 @@
   <div class="article-entry">
   
 <div id="toc">
-  <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#HMMER3的安装和使用"><span class="toc-text">HMMER3的安装和使用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#HMMER3的安装"><span class="toc-text">HMMER3的安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#HMMER3的使用"><span class="toc-text">HMMER3的使用</span></a></li></ol></li></ol>
+  <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#小结-11-10"><span class="toc-text">小结 11.10</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Data"><span class="toc-text">Data</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#GO-Term-Information"><span class="toc-text">GO Term Information</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Protein-Sequence-Data"><span class="toc-text">Protein Sequence Data</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Annotation-Information"><span class="toc-text">Annotation Information</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Baseline-Method"><span class="toc-text">Baseline Method</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#HMMER3的安装和使用"><span class="toc-text">HMMER3的安装和使用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#HMMER3的安装"><span class="toc-text">HMMER3的安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#HMMER3的使用"><span class="toc-text">HMMER3的使用</span></a></li></ol></li></ol></li></ol>
 </div>
 
     <p>test<br><a id="more"></a></p>
+<h1 id="小结-11-10"><a href="#小结-11-10" class="headerlink" title="小结 11.10"></a>小结 11.10</h1><p>总结一下最近一周的工作。主要是收集和整理数据；实现BLAST和PSI-BLAST的pipeline；熟悉其他的同源搜索软件(<code>HMMER</code>,<code>HHsplits</code>)；开始准备实现PPI网络的baseline</p>
+<h2 id="Data"><a href="#Data" class="headerlink" title="Data"></a>Data</h2><h3 id="GO-Term-Information"><a href="#GO-Term-Information" class="headerlink" title="GO Term Information"></a>GO Term Information</h3><p>Downloaded all the ontology information from <a href="http://geneontology.org/" target="_blank" rel="noopener">GO</a>, which include <strong>47334</strong> terms in <code>.obo</code> format (released on 2018/10/10).</p>
+<h3 id="Protein-Sequence-Data"><a href="#Protein-Sequence-Data" class="headerlink" title="Protein Sequence Data"></a>Protein Sequence Data</h3><p>Downloaded protein sequences data from <a href="ftp://ftp.uniprot.org/pub/databases/uniprot/current_release/knowledgebase/complete/" target="_blank" rel="noopener">Swiss-Prot</a>. Uniprot sequence data in <code>fasta</code> format, which include <strong>558590</strong> sequences in total. (released on 2018-10-10)</p>
+<h3 id="Annotation-Information"><a href="#Annotation-Information" class="headerlink" title="Annotation Information"></a>Annotation Information</h3><p>I spent much time retrieving the GO annotation data. They mainly from the following three sources:</p>
+<ul>
+<li>Uniprot ID Mapping information<br>  This file maps <code>Uniprot ID</code> to various kinds of resources including <code>GO term ID</code>. The original <code>idmapping</code> file contains <strong>134,066,004</strong> (<strong>85,396,292 with GO Annotation</strong>) (Because there are TrEMBL entries). After mapped with Swiss-Prot, There were <strong>527952</strong> remained. Note that the Uniprot annotation was not marked with annotation resources (such as ‘EXP’).</li>
+<li><p><a href="ftp://ftp.ebi.ac.uk/pub/databases/GO/goa/UNIPROT/" target="_blank" rel="noopener">GOA</a> data<br>  Original annotation file has <strong>181,327,081</strong> entries. After removing entries with less experimental evidence, <strong>822974</strong> remains.</p>
+<p>  After mapping with Swiss-Prot, <strong>276,853</strong> annotation remains, associated with <strong>44,336</strong> proteins and <strong>22,051</strong> GO terms.</p>
+</li>
+<li><a href="http://geneontology.org/page/download-go-annotations" target="_blank" rel="noopener">GO</a><br>  <strong>295,051</strong>annotation entries.</li>
+</ul>
+<hr>
+<h2 id="Baseline-Method"><a href="#Baseline-Method" class="headerlink" title="Baseline Method"></a>Baseline Method</h2><p>After retrieving those data, I start to construct a pipline for <strong>BLAST</strong> <strong>PSI-BLAST</strong> (now trying include <strong>STRING PPI</strong>)</p>
+<hr>
 <h2 id="HMMER3的安装和使用"><a href="#HMMER3的安装和使用" class="headerlink" title="HMMER3的安装和使用"></a>HMMER3的安装和使用</h2><blockquote>
 <p>本节参考(<a href="http://blog.sina.com.cn/s/blog_83f77c940101rzlo.html" target="_blank" rel="noopener">http://blog.sina.com.cn/s/blog_83f77c940101rzlo.html</a>)</p>
 </blockquote>
