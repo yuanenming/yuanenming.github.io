@@ -20,7 +20,7 @@
 <meta property="og:site_name" content="Yuan Enming">
 <meta property="og:description" content="小结">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-11-11T11:58:58.332Z">
+<meta property="og:updated_time" content="2018-11-11T15:10:38.282Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Protein Homology Search">
 <meta name="twitter:description" content="小结">
@@ -188,7 +188,7 @@
 </div>
 
     <p>小结<br><a id="more"></a></p>
-<h1 id="小结-11-10"><a href="#小结-11-10" class="headerlink" title="小结 11.10"></a>小结 11.10</h1><p>总结一下最近一周的工作。主要是三个方面。首先是收集和整理数据，从不同的数据源获取数据，并进行整合；第二个是实现基于BLAST和PSI-BLAST的pipeline，这两种方法在很多的研究中作为baseline进行比较，因此可以快速的了解整个问题；第三个是熟悉其他的同源搜索的算法以及相应的软件(<code>HMMER</code>,<code>HHsplits</code>)。另外我还开始准备实现PPI网络的baseline。</p>
+<h1 id="小结-11-10"><a href="#小结-11-10" class="headerlink" title="小结 11.10"></a>小结 11.10</h1><p>总结一下最近一周的工作。主要是三个方面。首先是收集和整理数据，从不同的数据源获取数据，并进行整合；第二个是实现基于BLAST和PSI-BLAST的pipeline，这两种方法在很多的研究中作为baseline进行比较，因此可以快速的了解整个问题；第三个是熟悉其他的同源搜索的算法以及相应的软件(<code>HMMER</code>,<code>HHblits</code>)。另外我还开始准备实现PPI网络的baseline。</p>
 <h2 id="Data"><a href="#Data" class="headerlink" title="Data"></a>Data</h2><ol>
 <li><p><strong>GO Term Information</strong><br>Downloaded all the ontology information from <a href="http://geneontology.org/" target="_blank" rel="noopener">GO</a>, which include <strong>47334</strong> terms in <code>.obo</code> format (released on 2018/10/10).</p>
 </li>
@@ -219,7 +219,7 @@
 <p>Then you can difine the confidence score of <code>GO:0000001</code> in the following ways:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">[1] globalID (identical residues number normalized by target length): </span><br><span class="line">    Cscore(GO:0000001)=4/8</span><br><span class="line">[2] localID (identical residue number normalized by aligned region length):</span><br><span class="line">    Cscore(GO:0000001)=4/6</span><br><span class="line">[3] GOfreq (number of templates annotated with GO divided by template number):</span><br><span class="line">    Cscore(GO:0000001)=2/3</span><br><span class="line">[4] evalue (Sigmoid transform of log evalue):</span><br><span class="line">    Cscore(GO:0000001)=1-Sigmoid(x)=1-1/(1+exp(-x)),x=log(evalue\*alpha)/log(alpha)</span><br></pre></td></tr></table></figure></p>
 <p>I have not done much experiment yet, so there is no further analysis.</p>
 <hr>
-<h2 id="Other-Protein-Homology-Search-Software"><a href="#Other-Protein-Homology-Search-Software" class="headerlink" title="Other Protein Homology Search Software"></a>Other Protein Homology Search Software</h2><p>I have read the papers about <strong>HMMER, HHsplits, HMM-HMM comparision</strong>. I think the basic idea of <strong>protein remote homolog search</strong> is make use of as much information about the sequence query and database as possible to achieve a better sensitivity. </p>
+<h2 id="Other-Protein-Homology-Search-Software"><a href="#Other-Protein-Homology-Search-Software" class="headerlink" title="Other Protein Homology Search Software"></a>Other Protein Homology Search Software</h2><p>I have read the papers about <strong>HMMER, HHblits, HMM-HMM comparision</strong>. I think the basic idea of <strong>protein remote homolog search</strong> is make use of as much information about the sequence query and database as possible to achieve a better sensitivity. </p>
 <ul>
 <li>This is the reason why sequence alignment methods(such as <strong>BLAST</strong>) is inferior to sequence-profile alignment methods(such as <strong>PSI-BLAST</strong>). </li>
 <li>The <strong>Sequence Profile</strong> contains each column of a multiple alignment of the protein family, as well as preferred residues at each position which is more conserve than a single character in sequence alignment. </li>
@@ -231,7 +231,7 @@
 <li>DeepGO中采用Hierarchical Classification的方法，是利用GO term的层次关系作为restriction，从而试图实现更好的效果。<br>但是我在处理数据的过程中发现，所有数据源的annotation数据，都只是为蛋白序列标注GO层级结构中的叶子节点，也就是并不会使用内部的层次关系。<br>最开始我的一个想法就是探索如何像DeepGO一样利用这个层次结构的关系，但现在开始思考这个方向可行性。<br>另外我通过观察数据得到，一个GO的叶子节点，很有可能与上百个内部节点相关联，这也就意味着，如果考虑内部GO term的话，这个问题将会变得更加复杂.</li>
 </ol>
 <h4 id="Fancy-or-practical"><a href="#Fancy-or-practical" class="headerlink" title="Fancy or practical"></a>Fancy or practical</h4><ol>
-<li>我理解的这个问题是有两个方向，一个是做出一个比较堪用的搜索办法，比如利用<code>HHsplits</code>等更敏感的搜索办法，或者像GOLabeler一样引入更多的特征，来实现更好的预测效果。</li>
+<li>我理解的这个问题是有两个方向，一个是做出一个比较堪用的搜索办法，比如利用<code>HHblits</code>等更敏感的搜索办法，或者像GOLabeler一样引入更多的特征，来实现更好的预测效果。</li>
 <li>另一个方向是提出一个fancy的方法，比如我最近看到一篇文章<a href="/https://www.ncbi.nlm.nih.gov/pubmed/29039790">ProLanGO</a>，这篇文章引入了NLP的方法，把sequence到GO的映射理解成机器翻译的过程，protein和GO都看作是一种语言，并以此建模；得到的预测结果虽然一般，但是，整个方法框架还是很出彩的。<br>这两个方向如果能都实现当然最好。</li>
 </ol>
 <h4 id="Schedule"><a href="#Schedule" class="headerlink" title="Schedule"></a>Schedule</h4><ol>
