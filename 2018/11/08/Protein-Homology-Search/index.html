@@ -12,18 +12,18 @@
   
 </title>
 
-<meta name="description" content="test">
+<meta name="description" content="小结">
 <meta name="keywords" content="Project">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Protein Homology Search">
 <meta property="og:url" content="http://www.yuanenming.com/2018/11/08/Protein-Homology-Search/index.html">
 <meta property="og:site_name" content="Yuan Enming">
-<meta property="og:description" content="test">
+<meta property="og:description" content="小结">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-11-11T08:07:32.839Z">
+<meta property="og:updated_time" content="2018-11-11T11:58:58.332Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Protein Homology Search">
-<meta name="twitter:description" content="test">
+<meta name="twitter:description" content="小结">
 
 
   <link rel="alternative" href="/atom.xml" title="Yuan Enming" type="application/atom+xml">
@@ -184,24 +184,41 @@
   <div class="article-entry">
   
 <div id="toc">
-  <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#小结-11-10"><span class="toc-text">小结 11.10</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Data"><span class="toc-text">Data</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#GO-Term-Information"><span class="toc-text">GO Term Information</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Protein-Sequence-Data"><span class="toc-text">Protein Sequence Data</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Annotation-Information"><span class="toc-text">Annotation Information</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#PPI-information"><span class="toc-text">PPI information</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Baseline-Method"><span class="toc-text">Baseline Method</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Other-Protein-Homology-Search-Software"><span class="toc-text">Other Protein Homology Search Software</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Future-work"><span class="toc-text">Future work</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Fancy-or-practical"><span class="toc-text">Fancy or practical</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#HMMER3的安装和使用"><span class="toc-text">HMMER3的安装和使用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#HMMER3的安装"><span class="toc-text">HMMER3的安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#HMMER3的使用"><span class="toc-text">HMMER3的使用</span></a></li></ol></li></ol></li></ol>
+  <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#小结-11-10"><span class="toc-text">小结 11.10</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Data"><span class="toc-text">Data</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Baseline-Method"><span class="toc-text">Baseline Method</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Other-Protein-Homology-Search-Software"><span class="toc-text">Other Protein Homology Search Software</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Future-work"><span class="toc-text">Future work</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Some-Questions"><span class="toc-text">Some Questions</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Fancy-or-practical"><span class="toc-text">Fancy or practical</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Schedule"><span class="toc-text">Schedule</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#HMMER3的安装和使用"><span class="toc-text">HMMER3的安装和使用</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#HMMER3的安装"><span class="toc-text">HMMER3的安装</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#HMMER3的使用"><span class="toc-text">HMMER3的使用</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#HHsuite-安装使用"><span class="toc-text">HHsuite 安装使用</span></a></li></ol></li></ol>
 </div>
 
-    <p>test<br><a id="more"></a></p>
-<h1 id="小结-11-10"><a href="#小结-11-10" class="headerlink" title="小结 11.10"></a>小结 11.10</h1><p>总结一下最近一周的工作。主要是收集和整理数据；实现BLAST和PSI-BLAST的pipeline；熟悉其他的同源搜索软件(<code>HMMER</code>,<code>HHsplits</code>)；开始准备实现PPI网络的baseline</p>
-<h2 id="Data"><a href="#Data" class="headerlink" title="Data"></a>Data</h2><h3 id="GO-Term-Information"><a href="#GO-Term-Information" class="headerlink" title="GO Term Information"></a>GO Term Information</h3><p>Downloaded all the ontology information from <a href="http://geneontology.org/" target="_blank" rel="noopener">GO</a>, which include <strong>47334</strong> terms in <code>.obo</code> format (released on 2018/10/10).</p>
-<h3 id="Protein-Sequence-Data"><a href="#Protein-Sequence-Data" class="headerlink" title="Protein Sequence Data"></a>Protein Sequence Data</h3><p>Downloaded protein sequences data from <a href="ftp://ftp.uniprot.org/pub/databases/uniprot/current_release/knowledgebase/complete/" target="_blank" rel="noopener">Swiss-Prot</a>. Uniprot sequence data in <code>fasta</code> format, which include <strong>558590</strong> sequences in total. (released on 2018-10-10)</p>
-<h3 id="Annotation-Information"><a href="#Annotation-Information" class="headerlink" title="Annotation Information"></a>Annotation Information</h3><p>I spent much time retrieving the GO annotation data. They mainly from the following three sources:</p>
-<ul>
-<li>Uniprot ID Mapping information<br>  This file maps <code>Uniprot ID</code> to various kinds of resources including <code>GO term ID</code>. The original <code>idmapping</code> file contains <strong>134,066,004</strong> (<strong>85,396,292 with GO Annotation</strong>) (Because there are TrEMBL entries). After mapped with Swiss-Prot, There were <strong>527952</strong> remained. Note that the Uniprot annotation was not marked with annotation resources (such as ‘EXP’).</li>
-<li><p><a href="ftp://ftp.ebi.ac.uk/pub/databases/GO/goa/UNIPROT/" target="_blank" rel="noopener">GOA</a> data<br>  Original annotation file has <strong>181,327,081</strong> entries. After removing entries with less experimental evidence, <strong>822974</strong> remains.</p>
-<p>  After mapping with Swiss-Prot, <strong>276,853</strong> annotation remains, associated with <strong>44,336</strong> proteins and <strong>22,051</strong> GO terms.</p>
+    <p>小结<br><a id="more"></a></p>
+<h1 id="小结-11-10"><a href="#小结-11-10" class="headerlink" title="小结 11.10"></a>小结 11.10</h1><p>总结一下最近一周的工作。主要是三个方面。首先是收集和整理数据，从不同的数据源获取数据，并进行整合；第二个是实现基于BLAST和PSI-BLAST的pipeline，这两种方法在很多的研究中作为baseline进行比较，因此可以快速的了解整个问题；第三个是熟悉其他的同源搜索的算法以及相应的软件(<code>HMMER</code>,<code>HHsplits</code>)。另外我还开始准备实现PPI网络的baseline。</p>
+<h2 id="Data"><a href="#Data" class="headerlink" title="Data"></a>Data</h2><ol>
+<li><p><strong>GO Term Information</strong><br>Downloaded all the ontology information from <a href="http://geneontology.org/" target="_blank" rel="noopener">GO</a>, which include <strong>47334</strong> terms in <code>.obo</code> format (released on 2018/10/10).</p>
 </li>
-<li><a href="http://geneontology.org/page/download-go-annotations" target="_blank" rel="noopener">GO</a><br>  <strong>295,051</strong>annotation entries.</li>
+<li><p><strong>Protein Sequence Data</strong><br>Downloaded protein sequences data from <a href="ftp://ftp.uniprot.org/pub/databases/uniprot/current_release/knowledgebase/complete/" target="_blank" rel="noopener">Swiss-Prot</a>. Uniprot sequence data in <code>fasta</code> format, which include <strong>558590</strong> sequences in total. (released on 2018-10-10)</p>
+</li>
+<li><p><strong>Annotation Information</strong><br>I spent much time retrieving the GO annotation data. They mainly from the following three sources:</p>
+<ul>
+<li>Uniprot ID Mapping information<br>This file maps <code>Uniprot ID</code> to various kinds of resources including <code>GO term ID</code>. The original <code>idmapping</code> file contains <strong>134,066,004</strong> (<strong>85,396,292 with GO Annotation</strong>) (Because there are TrEMBL entries). After mapped with Swiss-Prot, There were <strong>527952</strong> remained. Note that the Uniprot annotation was not marked with annotation resources (such as ‘EXP’).</li>
+<li><p><a href="ftp://ftp.ebi.ac.uk/pub/databases/GO/goa/UNIPROT/" target="_blank" rel="noopener">GOA</a> data<br>Original annotation file has <strong>181,327,081</strong> entries. After removing entries with less experimental evidence, <strong>822974</strong> remains.</p>
+<p>After mapping with Swiss-Prot, <strong>276,853</strong> annotation remains, associated with <strong>44,336</strong> proteins and <strong>22,051</strong> GO terms.</p>
+</li>
+<li><a href="http://geneontology.org/page/download-go-annotations" target="_blank" rel="noopener">GO</a><br><strong>295,051</strong>annotation entries.</li>
 </ul>
-<h3 id="PPI-information"><a href="#PPI-information" class="headerlink" title="PPI information"></a>PPI information</h3><p>I have downloaded protein-protein interaction networks from <a href="https://string-db.org/cgi/download.pl?sessionId=lZah78NFVD9Y" target="_blank" rel="noopener">STRING</a>. The PPI file contains more than 3,000,000,000 interactions and is large to <strong>123GB</strong>. Now I am tring to map this file to Swiss-Prot.</p>
+</li>
+<li><p><strong>PPI information</strong><br>I have downloaded protein-protein interaction networks from <a href="https://string-db.org/cgi/download.pl?sessionId=lZah78NFVD9Y" target="_blank" rel="noopener">STRING</a>. The PPI file contains more than 3,000,000,000 interactions and is large to <strong>123GB</strong>. Now I am tring to map this file to Swiss-Prot.</p>
+</li>
+</ol>
 <hr>
-<h2 id="Baseline-Method"><a href="#Baseline-Method" class="headerlink" title="Baseline Method"></a>Baseline Method</h2><p>After retrieving those data, I start to construct a pipline for <strong>BLAST</strong> and <strong>PSI-BLAST</strong> (now trying include <strong>STRING PPI</strong>).<br>The key<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">s=start:开始</span><br><span class="line">e=end:结束</span><br><span class="line">o=operation:操作项</span><br><span class="line"></span><br><span class="line">s-o-e</span><br></pre></td></tr></table></figure></p>
+<h2 id="Baseline-Method"><a href="#Baseline-Method" class="headerlink" title="Baseline Method"></a>Baseline Method</h2><p>After retrieving those data, I start to construct a pipline for <strong>BLAST</strong> and <strong>PSI-BLAST</strong> (now trying include <strong>STRING PPI</strong>).<br>The dataflow is as following:</p>
+<center>
+
+<div id="flowchart-0" class="flow-chart"></div>
+</center>
+
+<p>First the query sequence was searched against the database and obtain multiple sequence alignments (MSA). Then the MSA result can be filtered according to pre-defined homology parameters. And then the filtered MSA is mapped to the GO terms according to a confidence function.</p>
+<p>Accoring to the previous study, we can define the confidence score in different ways. For example:<br>if you have a query <code>AKLMNWTY</code> and you get MSA as following:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Query        AKLMNWTY</span><br><span class="line"></span><br><span class="line">Template1    -KICNWT- GO:0000001 evalue=0.01</span><br><span class="line">Template2    --ICNWT- GO:0000001 evalue=0.1</span><br><span class="line">Template3    AKLCNYTY GO:0000002 evalue=0.001</span><br></pre></td></tr></table></figure>
+<p>Then you can difine the confidence score of <code>GO:0000001</code> in the following ways:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">[1] globalID (identical residues number normalized by target length): </span><br><span class="line">    Cscore(GO:0000001)=4/8</span><br><span class="line">[2] localID (identical residue number normalized by aligned region length):</span><br><span class="line">    Cscore(GO:0000001)=4/6</span><br><span class="line">[3] GOfreq (number of templates annotated with GO divided by template number):</span><br><span class="line">    Cscore(GO:0000001)=2/3</span><br><span class="line">[4] evalue (Sigmoid transform of log evalue):</span><br><span class="line">    Cscore(GO:0000001)=1-Sigmoid(x)=1-1/(1+exp(-x)),x=log(evalue\*alpha)/log(alpha)</span><br></pre></td></tr></table></figure></p>
+<p>I have not done much experiment yet, so there is no further analysis.</p>
+<hr>
 <h2 id="Other-Protein-Homology-Search-Software"><a href="#Other-Protein-Homology-Search-Software" class="headerlink" title="Other Protein Homology Search Software"></a>Other Protein Homology Search Software</h2><p>I have read the papers about <strong>HMMER, HHsplits, HMM-HMM comparision</strong>. I think the basic idea of <strong>protein remote homolog search</strong> is make use of as much information about the sequence query and database as possible to achieve a better sensitivity. </p>
 <ul>
 <li>This is the reason why sequence alignment methods(such as <strong>BLAST</strong>) is inferior to sequence-profile alignment methods(such as <strong>PSI-BLAST</strong>). </li>
@@ -209,15 +226,25 @@
 <li><strong>Hidden Markov Models (HMMs)</strong> are similar to simple sequence profiles, but they contain information about the frequency of insertions and deletions at each position, in addition to the amino acid frequencies in the multiple sequence alignment columns. You can use HMMs on the query and the database which both will outperform the sequence-alignment or sequence-profile methods.</li>
 <li><strong>HMM-HMM Comparision</strong> exploits HMMs both on the query and the database and is more sensitive to homologs.</li>
 </ul>
-<p>Then I download a local version of HMMER3.1 and HHblits.</p>
-<h2 id="Future-work"><a href="#Future-work" class="headerlink" title="Future work"></a>Future work</h2><h3 id="Fancy-or-practical"><a href="#Fancy-or-practical" class="headerlink" title="Fancy or practical"></a>Fancy or practical</h3><hr>
+<p>Then I downloaded a local version of <a href="http://hmmer.org/" target="_blank" rel="noopener">HMMER3.1</a> and <a href="https://github.com/soedinglab/hh-suite/releases" target="_blank" rel="noopener">HHblits</a> and tried to costumize database and parameters.</p>
+<h2 id="Future-work"><a href="#Future-work" class="headerlink" title="Future work"></a>Future work</h2><h4 id="Some-Questions"><a href="#Some-Questions" class="headerlink" title="Some Questions"></a>Some Questions</h4><ol>
+<li>DeepGO中采用Hierarchical Classification的方法，是利用GO term的层次关系作为restriction，从而试图实现更好的效果。<br>但是我在处理数据的过程中发现，所有数据源的annotation数据，都只是为蛋白序列标注GO层级结构中的叶子节点，也就是并不会使用内部的层次关系。<br>最开始我的一个想法就是探索如何像DeepGO一样利用这个层次结构的关系，但现在开始思考这个方向可行性。<br>另外我通过观察数据得到，一个GO的叶子节点，很有可能与上百个内部节点相关联，这也就意味着，如果考虑内部GO term的话，这个问题将会变得更加复杂.</li>
+</ol>
+<h4 id="Fancy-or-practical"><a href="#Fancy-or-practical" class="headerlink" title="Fancy or practical"></a>Fancy or practical</h4><ol>
+<li>我理解的这个问题是有两个方向，一个是做出一个比较堪用的搜索办法，比如利用<code>HHsplits</code>等更敏感的搜索办法，或者像GOLabeler一样引入更多的特征，来实现更好的预测效果。</li>
+<li>另一个方向是提出一个fancy的方法，比如我最近看到一篇文章<a href="/https://www.ncbi.nlm.nih.gov/pubmed/29039790">ProLanGO</a>，这篇文章引入了NLP的方法，把sequence到GO的映射理解成机器翻译的过程，protein和GO都看作是一种语言，并以此建模；得到的预测结果虽然一般，但是，整个方法框架还是很出彩的。<br>这两个方向如果能都实现当然最好。</li>
+</ol>
+<h4 id="Schedule"><a href="#Schedule" class="headerlink" title="Schedule"></a>Schedule</h4><ol>
+<li>接下来3-4天继续把baseline的实验结果分析一下，然后，开始尝试PPI与结构信息。</li>
+</ol>
+<hr>
 <h2 id="HMMER3的安装和使用"><a href="#HMMER3的安装和使用" class="headerlink" title="HMMER3的安装和使用"></a>HMMER3的安装和使用</h2><blockquote>
 <p>本节参考(<a href="http://blog.sina.com.cn/s/blog_83f77c940101rzlo.html" target="_blank" rel="noopener">http://blog.sina.com.cn/s/blog_83f77c940101rzlo.html</a>)</p>
 </blockquote>
 <p>简单的讲HMMER就是一款比对软件，可以类似于blast等，但是它提供的比对结果要精确于blast,相应的速度也要慢。与其类似的比对软件有PSI-blast、SAM、PFTOOLS等。</p>
-<h3 id="HMMER3的安装"><a href="#HMMER3的安装" class="headerlink" title="HMMER3的安装"></a>HMMER3的安装</h3><p>HMMER3的官网上直接有二进制包，直接下载，根本不需要进行安装，只需要设置一下环境变量就可以使用了</p>
+<h4 id="HMMER3的安装"><a href="#HMMER3的安装" class="headerlink" title="HMMER3的安装"></a>HMMER3的安装</h4><p>HMMER3的官网上直接有二进制包，直接下载，根本不需要进行安装，只需要设置一下环境变量就可以使用了</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Linux</span></span><br><span class="line"><span class="comment"># 直接下载匹配OS的二进制包，根本就不需要进行安装，只要稍微设置一下PATH变量就可以使用了，非常方便。</span></span><br><span class="line"><span class="comment"># 在home目录下创建biosoft目录，一般的生物分析软件都在这里</span></span><br><span class="line">mkdir biotools</span><br><span class="line"><span class="built_in">cd</span> biotools</span><br><span class="line"><span class="comment"># 下载二进制包解压，速度好像有些慢，只能无奈等待</span></span><br><span class="line">wget http://eddylab.org/software/hmmer3/3.1b2/hmmer-3.1b2-linux-intel-x86_64.tar.gz</span><br><span class="line">tar -zxvf hmmer-3.1b2-linux-intel-x86_64.tar.gz</span><br><span class="line"><span class="comment"># 将binaries目录添加到环境变量中，能够全局环境使用</span></span><br><span class="line"><span class="built_in">cd</span> ~</span><br><span class="line"><span class="comment"># 添加环境变量</span></span><br><span class="line">vim ./bashrc</span><br><span class="line"><span class="comment">##(添加的语句) export PATH="$PATH:~/biotools/hmmer-3.1b2-linux-intel-x86_64/binaries/"</span></span><br><span class="line"><span class="built_in">source</span> .bashrc</span><br></pre></td></tr></table></figure>
-<h3 id="HMMER3的使用"><a href="#HMMER3的使用" class="headerlink" title="HMMER3的使用"></a>HMMER3的使用</h3><p>这个工具包里方法是很全面的，下边主要介绍三种用途。</p>
+<h4 id="HMMER3的使用"><a href="#HMMER3的使用" class="headerlink" title="HMMER3的使用"></a>HMMER3的使用</h4><p>这个工具包里方法是很全面的，下边主要介绍三种用途。</p>
 <ol>
 <li>对于一条未知的序列在蛋白质数据库中寻找比对，HMMER完全可以取代目前常用的BLASTP 和 PSI-BLAST。</li>
 <li>可以自动注释蛋白质结构域。包括pfam、SMART。</li>
@@ -263,6 +290,12 @@
 <p>如果你仅仅有的是模型数据库的多重序列比对格式文件例如来自pfam数据库的（Stockholm file）Pfam-A.seed文件：你可以利用hmmbuild 建立模型数据库：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hmmbuild Pfam-A.hmm Pfam-A.see</span><br></pre></td></tr></table></figure></p>
 <p>生成的文件为pfam-A.hmm<br>由于你一般建立的模型数据库比较大，所以需要建立index,运行：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hmmpress minifam <span class="comment">#（感觉有点像formatdb）</span></span><br></pre></td></tr></table></figure></p>
 <p>最后运行：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hmmscan minifam tutorial/7LESS DROME</span><br></pre></td></tr></table></figure></p>
+<h2 id="HHsuite-安装使用"><a href="#HHsuite-安装使用" class="headerlink" title="HHsuite 安装使用"></a>HHsuite 安装使用</h2><p><script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.2.7/raphael.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/flowchart/1.6.5/flowchart.min.js"></script><textarea id="flowchart-0-code" style="display: none">st=>start: Query
+op1=>operation: MSA
+op2=>operation: filtered_MSA
+e=>end: GO Term
+
+st->op1->op2->e</textarea><textarea id="flowchart-0-options" style="display: none">{"scale":1,"line-width":2,"line-length":50,"text-margin":10,"font-size":12}</textarea><script>  var code = document.getElementById("flowchart-0-code").value;  var options = JSON.parse(decodeURIComponent(document.getElementById("flowchart-0-options").value));  var diagram = flowchart.parse(code);  diagram.drawSVG("flowchart-0", options);</script></p>
 
   </div>
   <footer class="article-footer">

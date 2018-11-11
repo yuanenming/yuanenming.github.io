@@ -234,7 +234,7 @@ g_{i}(x)=max(b_{i} + w_{i} \cdot x)</script><p>The weight matrix in this functio
 L(f(x|\theta),y) = -log[\sqrt{\frac{1}{2\pi\sigma^2}}exp(-\frac{1}{2\sigma^2}(y-f)^2)]
 =\frac{1}{2\sigma^2}(y-f)^2+\frac{1}{2}log(2\pi\sigma^2)</script><p>Which is equivalently described as the squared error. The squared error was the most commonly used loss function in the 1980s. However, it often tends to penalize outliers excessively, leading to slower convergence rates.<br>If $y$ follows the Bernoulli distribution, then the loss function will be:</p>
 <script type="math/tex; mode=display">
-L(f(x|\theta),y) = -ylogf(x|\theta)-(1-y)log(1-f(x|\theta))</script><p>When y is discrete and has only two values, for instance, $y\in\{1,2,3…k\}$, we can take the softmax value (see commonly-used activation functions) as the probability over the categories. Then the loss function will be:</p>
+L(f(x|\theta),y) = -ylogf(x|\theta)-(1-y)log(1-f(x|\theta))</script><p>When y is discrete and has only two values, for instance, $y\in{1,2,3…k}$, we can take the softmax value (see commonly-used activation functions) as the probability over the categories. Then the loss function will be:</p>
 <script type="math/tex; mode=display">
 L(f(x|\theta),y) = -log(\frac{e^{a_{y}}}{\sum_{j}e^{a_{j}}}) = -a_y+log(\sum_je^{a_j})</script><h4 id="Regularizaiton-term"><a href="#Regularizaiton-term" class="headerlink" title="Regularizaiton term"></a>Regularizaiton term</h4><ul>
 <li>L2 parameter regularization is the most common form of regularization term and contributes to the convexity of the optimization objective, leading to an easy solution for the minimum using the Hessian matrix. L2 parameter regularization can be defined as<script type="math/tex; mode=display">
